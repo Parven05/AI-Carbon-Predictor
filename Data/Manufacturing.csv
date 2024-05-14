@@ -1,0 +1,52 @@
+,,,,,
+No.,Manufacturing Equipment/Machinery,Quantity / M,Fuel Consumption Rate (L/h) / Electricity Consumption (kW/h) / r,Hours of Operation / h,Carbon Emission Factor (kgCO2e/L or kgCO2e/kW) / F
+1,CNC Milling Machine,10,15 kW/h,2000,0.5
+2,CNC Lathe,12,12 kW/h,2000,0.5
+3,Injection Molding Machine,8,20 kW/h,3000,0.5
+4,3D Printer,15,5 kW/h,2500,0.5
+5,Hydraulic Press,6,10 kW/h,1500,0.5
+6,Laser Cutter,10,8 kW/h,2000,0.5
+7,Welding Machine,20,7 kW/h,1000,0.5
+8,Grinding Machine,12,6 kW/h,2500,0.5
+9,Band Saw,18,3 kW/h,1500,0.5
+10,Drill Press,25,2 kW/h,1200,0.5
+11,Plasma Cutter,10,9 kW/h,1800,0.5
+12,Extruder,5,25 kW/h,3000,0.5
+13,Conveyor Belt,30,1 kW/h,4000,0.5
+14,Air Compressor,10,5 kW/h,3000,0.5
+15,Forklift,15,4 L/h,2000,2.7
+16,Generator,5,10 L/h,2500,2.7
+17,Water Jet Cutter,4,30 kW/h,1500,0.5
+18,Electric Furnace,8,50 kW/h,3000,0.5
+19,Heat Treatment Oven,6,45 kW/h,2000,0.5
+20,Sandblaster,10,10 kW/h,1000,0.5
+21,Paint Booth,12,15 kW/h,2500,0.5
+22,Mixing Machine,20,4 kW/h,2000,0.5
+23,Sintering Machine,3,35 kW/h,3000,0.5
+24,Shaper Machine,7,7 kW/h,1500,0.5
+25,Broaching Machine,5,6 kW/h,2000,0.5
+26,Woodworking Lathe,12,3 kW/h,1000,0.5
+27,Planer Machine,8,10 kW/h,1200,0.5
+28,Shearing Machine,10,8 kW/h,1500,0.5
+29,Punching Machine,12,9 kW/h,2000,0.5
+30,Blanking Machine,6,10 kW/h,1500,0.5
+31,Forming Machine,5,12 kW/h,2500,0.5
+32,Bending Machine,8,7 kW/h,3000,0.5
+33,Rolling Machine,4,15 kW/h,2000,0.5
+34,Drawing Machine,6,10 kW/h,2000,0.5
+35,Spinning Machine,8,5 kW/h,1500,0.5
+36,Knitting Machine,12,6 kW/h,2500,0.5
+37,Weaving Machine,10,8 kW/h,3000,0.5
+38,Loom,15,4 kW/h,2000,0.5
+39,Sewing Machine,25,2 kW/h,1000,0.5
+40,Embroidery Machine,18,3 kW/h,1500,0.5
+41,Dyeing Machine,10,20 kW/h,2500,0.5
+42,Printing Press,8,10 kW/h,2000,0.5
+43,Offset Printing Machine,5,15 kW/h,2000,0.5
+44,Digital Printing Machine,12,5 kW/h,1500,0.5
+45,Screen Printing Machine,10,8 kW/h,1200,0.5
+46,Textile Dryer,10,25 kW/h,3000,0.5
+47,Dye Sublimation Printer,7,6 kW/h,2000,0.5
+48,Plotter,12,2 kW/h,1000,0.5
+49,Vacuum Forming Machine,6,12 kW/h,2500,0.5
+50,Blister Packing Machine,8,10 kW/h,2000,0.5
