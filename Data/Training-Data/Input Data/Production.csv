@@ -1,0 +1,101 @@
+,,,
+1,Cement,300,0.9
+2,Concrete,2200,0.3
+3,Steel,1000,1.8
+4,Asphalt,1500,0.1
+5,Bricks,600,0.5
+6,Glass,400,0.8
+7,Wood,800,0.2
+8,Aluminium,150,11
+9,Plastics,200,6
+10,Stone,1000,0.4
+11,Gypsum,300,0.5
+12,Clay,400,0.3
+13,Sand,2500,0.1
+14,Gravel,1500,0.1
+15,Lime,200,0.2
+16,Fly ash,800,0.1
+17,Timber,500,0.3
+18,Plasticizers,100,6
+19,Rubber,50,5
+20,Fiberglass,100,4
+21,Bitumen,500,3
+22,Insulation,300,2
+23,Clay tiles,400,0.6
+24,Copper,50,4
+25,Lead,20,4.5
+26,Zinc,30,2.5
+27,Paints,100,5
+28,Coatings,200,4.5
+29,Adhesives,150,3.5
+30,Sealants,100,4
+31,Screws,50,3
+32,Nails,100,2
+33,Bolts,50,3.5
+34,Rivets,50,2.5
+35,Wire mesh,100,1.5
+36,Rebar,200,2
+37,Wood panels,300,0.4
+38,MDF,200,0.6
+39,Plywood,400,0.5
+40,OSB,300,0.4
+41,PVC,100,6
+42,EPDM,50,5.5
+43,TPO,100,5
+44,SBS,150,4.5
+45,EPS,100,4
+46,XPS,200,3.5
+47,PU foam,100,4
+48,PIR,150,3.5
+49,Phenolic foam,100,5
+50,Mineral wool,300,3
+51,Fiberglass wool,200,2.5
+52,Cellulose,300,1.5
+53,Rock wool,200,3
+54,AAC blocks,500,0.6
+55,UPVC,100,7
+56,GRC,200,5
+57,Resins,50,7.5
+58,Polycarbonate,100,7
+59,Acrylic,100,6.5
+60,FRP,150,6
+61,Cement board,300,0.7
+62,Steel studs,100,1.8
+63,Aluminum studs,50,11
+64,Metal studs,100,2.5
+65,Galvanized steel,100,1.8
+66,Stainless steel,50,4
+67,Corrugated iron,200,1.5
+68,Metal roofing,300,2
+69,Metal siding,300,2.5
+70,Aluminum siding,150,11
+71,Glass wool,300,2
+72,Reinforced concrete,2500,0.3
+73,Treated wood,600,0.3
+74,Particle board,300,0.5
+75,Chipboard,400,0.5
+76,Fiberboard,300,0.6
+77,Stone wool,300,0.3
+78,Aluminium foil,50,11
+79,Galvanized iron,200,1.5
+80,Stainless steel wire,50,4
+81,Bitumen membrane,300,3
+82,PVC membrane,200,6
+83,EPDM membrane,5.5,100
+84,TPO membrane,5,100
+85,SBS membrane,4.5,150
+86,EPS insulation,4,100
+87,XPS insulation,3.5,200
+88,PU foam insulation,4,100
+89,PIR insulation,3.5,150
+90,Phenolic foam insulation,5,100
+91,Mineral wool insulation,3,300
+92,Fiberglass wool insulation,2.5,200
+93,Cellulose insulation,1.5,300
+94,Rock wool insulation,3,200
+95,AAC blocks,0.6,500
+96,UPVC,7,100
+97,GRC,5,200
+98,Resins,7.5,50
+99,Polycarbonate,7,100
+100,Acrylic,6.5,100
