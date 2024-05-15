@@ -98,5 +98,5 @@ No.,Material,Mass Used (kg)/M,Distance Traveled (km) / D,Fuel Consumption Rate (
 96,Cobblestone,150,40,0.4,0.6
 97,Paver,180,45,0.4,0.7
 98,Retaining Wall Block,200,50,0.4,0.8
-99,,,,,
-100,,,,,
+99,Rubber Matting,200,60,0.4,1.2
+100,Fiberglass Insulation,300,80,0.4,1.0
