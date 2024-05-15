@@ -2,5 +2,5 @@
 ![Source](https://badgen.net/badge/Source/Research/blue)
 ![License](https://badgen.net/badge/license/MIT/green)
 
-# AI-Build-Carbon-Predictor
+# AI-Carbon-Predictor
 Carbon emission calculator using AI models
