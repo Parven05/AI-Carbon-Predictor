@@ -1,5 +1,6 @@
 ![Status](https://badgen.net/badge/Status/Development/red?icon=github)
-![Tool](https://badgen.net/badge/Tool/Orange3/orange?icon=orange)
+![Tool](https://badgen.net/badge/Tool/Orange3/orange?icon)
+![Tool](https://badgen.net/badge/Tool/Python/yellow?icon)
 ![Source](https://badgen.net/badge/Source/Research/blue)
 ![License](https://badgen.net/badge/license/MIT/green)
 
