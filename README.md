@@ -2,7 +2,6 @@
 ![Source](https://badgen.net/badge/Source/Research/blue)
 ![License](https://badgen.net/badge/license/MIT/green)
 ![Tool](https://badgen.net/badge/Tool/Orange3/orange?icon)
-![Tool](https://badgen.net/badge/PL/Python3.12.3/yellow?icon)
 
 ![Logo](https://github.com/Parven05/AI-Carbon-Predictor/assets/101796812/80da8057-5c1f-4bef-8950-125f1f78c045)
 
