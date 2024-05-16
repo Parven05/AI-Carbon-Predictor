@@ -1,152 +1,152 @@
-1,CNC Milling Machine,10,15 ,2000,0.5
-2,CNC Milling Machine,12,14 ,2200,0.5
-3,CNC Milling Machine,8,16 ,1800,0.5
-4,CNC Milling Machine,9,15 ,2500,0.5
-5,CNC Milling Machine,11,14 ,2100,0.5
-6,CNC Milling Machine,13,16 ,1900,0.5
-7,CNC Milling Machine,10,15 ,2400,0.5
-8,CNC Milling Machine,12,14 ,2300,0.5
-9,CNC Milling Machine,8,16 ,2000,0.5
-10,CNC Milling Machine,9,15 ,2200,0.5
-11,CNC Milling Machine,11,14 ,2100,0.5
-12,CNC Lathe,12,12 ,2000,0.5
-13,CNC Lathe,10,11 ,2200,0.5
-14,CNC Lathe,14,13 ,1800,0.5
-15,CNC Lathe,8,12 ,2500,0.5
-16,CNC Lathe,15,11 ,2100,0.5
-17,CNC Lathe,10,13 ,1900,0.5
-18,CNC Lathe,12,12 ,2400,0.5
-19,CNC Lathe,9,11 ,2300,0.5
-20,CNC Lathe,13,13 ,2000,0.5
-21,CNC Lathe,11,12 ,2200,0.5
-22,Injection Molding Machine,8,20 ,3000,0.5
-23,Injection Molding Machine,9,21 ,3200,0.5
-24,Injection Molding Machine,7,19 ,2800,0.5
-25,Injection Molding Machine,10,20 ,3100,0.5
-26,Injection Molding Machine,6,21 ,2900,0.5
-27,Injection Molding Machine,8,19 ,3000,0.5
-28,Injection Molding Machine,9,20 ,3200,0.5
-29,Injection Molding Machine,7,21 ,2800,0.5
-30,Injection Molding Machine,10,19 ,3100,0.5
-31,Injection Molding Machine,6,20 ,2900,0.5
-32,3D Printer,15,5 ,2500,0.5
-33,3D Printer,12,6 ,2600,0.5
-34,3D Printer,18,5 ,2400,0.5
-35,3D Printer,14,6 ,2700,0.5
-36,3D Printer,16,5 ,2500,0.5
-37,3D Printer,13,6 ,2600,0.5
-38,3D Printer,17,5 ,2400,0.5
-39,3D Printer,15,6 ,2700,0.5
-40,3D Printer,12,5 ,2500,0.5
-41,3D Printer,18,6 ,2600,0.5
-42,Hydraulic Press,6,10 ,1500,0.5
-43,Hydraulic Press,5,11 ,1600,0.5
-44,Hydraulic Press,7,9 ,1400,0.5
-45,Hydraulic Press,6,10 ,1500,0.5
-46,Hydraulic Press,8,11 ,1600,0.5
-47,Hydraulic Press,5,9 ,1400,0.5
-48,Hydraulic Press,7,10 ,1500,0.5
-49,Hydraulic Press,6,11 ,1600,0.5
-50,Hydraulic Press,8,9 ,1400,0.5
-51,Hydraulic Press,5,10 ,1500,0.5
-52,Laser Cutter,10,8 ,2000,0.5
-53,Laser Cutter,12,9 ,2100,0.5
-54,Laser Cutter,8,7 ,1900,0.5
-55,Laser Cutter,9,8 ,2000,0.5
-56,Laser Cutter,11,9 ,2100,0.5
-57,Laser Cutter,10,7 ,1900,0.5
-58,Laser Cutter,12,8 ,2000,0.5
-59,Laser Cutter,8,9 ,2100,0.5
-60,Laser Cutter,9,7 ,1900,0.5
-61,Laser Cutter,11,8 ,2000,0.5
-62,Welding Machine,20,7 ,1000,0.5
-63,Welding Machine,18,6 ,1200,0.5
-64,Welding Machine,22,8 ,900,0.5
-65,Welding Machine,19,7 ,1000,0.5
-66,Welding Machine,21,6 ,1100,0.5
-67,Welding Machine,20,8 ,1200,0.5
-68,Welding Machine,18,7 ,900,0.5
-69,Welding Machine,22,6 ,1000,0.5
-70,Welding Machine,19,8 ,1100,0.5
-71,Welding Machine,21,7 ,1200,0.5
-72,Grinding Machine,12,6 ,2500,0.5
-73,Grinding Machine,14,7 ,2600,0.5
-74,Grinding Machine,10,5 ,2400,0.5
-75,Grinding Machine,13,6 ,2500,0.5
-76,Grinding Machine,12,7 ,2600,0.5
-77,Grinding Machine,14,5 ,2400,0.5
-78,Grinding Machine,10,6 ,2500,0.5
-79,Grinding Machine,13,7 ,2600,0.5
-80,Grinding Machine,12,5 ,2400,0.5
-81,Grinding Machine,14,6 ,2500,0.5
-82,Band Saw,18,3 ,1500,0.5
-83,Band Saw,16,4 ,1600,0.5
-84,Band Saw,20,2 ,1400,0.5
-85,Band Saw,17,3 ,1500,0.5
-86,Band Saw,19,4 ,1600,0.5
-87,Band Saw,18,2 ,1400,0.5
-88,Band Saw,16,3 ,1500,0.5
-89,Band Saw,20,4 ,1600,0.5
-90,Band Saw,17,2 ,1400,0.5
-91,Band Saw,19,3 ,1500,0.5
-92,Drill Press,25,2 ,1200,0.5
-93,Drill Press,22,3 ,1300,0.5
-94,Drill Press,28,2 ,1100,0.5
-95,Drill Press,24,3 ,1200,0.5
-96,Drill Press,26,2 ,1300,0.5
-97,Drill Press,23,3 ,1100,0.5
-98,Drill Press,27,2 ,1200,0.5
-100,Drill Press,22,2 ,1100,0.5
-101,Plasma Cutter,10,9 ,1800,0.5
-102,Plasma Cutter,11,8 ,1900,0.5
-103,Plasma Cutter,9,10 ,1700,0.5
-104,Plasma Cutter,12,9 ,1800,0.5
-105,Plasma Cutter,10,8 ,1900,0.5
-106,Plasma Cutter,11,10 ,1700,0.5
-107,Plasma Cutter,9,9 ,1800,0.5
-108,Plasma Cutter,12,8 ,1900,0.5
-109,Plasma Cutter,10,10 ,1700,0.5
-110,Plasma Cutter,11,9 ,1800,0.5
-111,Extruder,5,25 ,3000,0.5
-112,Extruder,6,24 ,3100,0.5
-113,Extruder,4,26 ,2900,0.5
-114,Extruder,7,25 ,3000,0.5
-115,Extruder,5,24 ,3100,0.5
-116,Extruder,6,26 ,2900,0.5
-117,Extruder,4,25 ,3000,0.5
-118,Extruder,7,24 ,3100,0.5
-119,Extruder,5,26 ,2900,0.5
-120,Extruder,6,25 ,3000,0.5
-121,Conveyor Belt,30,1 ,4000,0.5
-122,Conveyor Belt,32,1 ,4100,0.5
-123,Conveyor Belt,28,2 ,3900,0.5
-124,Conveyor Belt,31,1 ,4000,0.5
-125,Conveyor Belt,33,2 ,4100,0.5
-126,Conveyor Belt,29,1 ,3900,0.5
-127,Conveyor Belt,32,1 ,4000,0.5
-128,Conveyor Belt,34,2 ,4100,0.5
-129,Conveyor Belt,30,1 ,3900,0.5
-130,Conveyor Belt,33,1 ,4000,0.5
-131,Air Compressor,10,5 ,3000,0.5
-132,Air Compressor,11,4 ,3100,0.5
-133,Air Compressor,9,6 ,2900,0.5
-134,Air Compressor,12,5 ,3000,0.5
-135,Air Compressor,10,4 ,3100,0.5
-136,Air Compressor,11,6 ,2900,0.5
-137,Air Compressor,9,5 ,3000,0.5
-138,Air Compressor,12,4 ,3100,0.5
-139,Air Compressor,10,6 ,2900,0.5
-140,Air Compressor,11,5 ,3000,0.5
-141,Forklift,15,4 ,2000,2.7
-142,Forklift,16,3.5 ,2100,2.7
-143,Forklift,14,4.5 ,1900,2.7
-144,Forklift,17,4 ,2000,2.7
-145,Forklift,15,3.5 ,2100,2.7
-146,Forklift,16,4.5 ,1900,2.7
-147,Forklift,14,4 ,2000,2.7
-148,Forklift,17,3.5 ,2100,2.7
-149,Forklift,15,4.5 ,1900,2.7
-150,Forklift,16,4 ,2000,2.7
+1,CNC Milling Machine,10,15,2000,0.5
+2,CNC Milling Machine,12,14,2200,0.5
+3,CNC Milling Machine,8,16,1800,0.5
+4,CNC Milling Machine,9,15,2500,0.5
+5,CNC Milling Machine,11,14,2100,0.5
+6,CNC Milling Machine,13,16,1900,0.5
+7,CNC Milling Machine,10,15,2400,0.5
+8,CNC Milling Machine,12,14,2300,0.5
+9,CNC Milling Machine,8,16,2000,0.5
+10,CNC Milling Machine,9,15,2200,0.5
+11,CNC Milling Machine,11,14,2100,0.5
+12,CNC Lathe,12,12,2000,0.5
+13,CNC Lathe,10,11,2200,0.5
+14,CNC Lathe,14,13,1800,0.5
+15,CNC Lathe,8,12,2500,0.5
+16,CNC Lathe,15,11,2100,0.5
+17,CNC Lathe,10,13,1900,0.5
+18,CNC Lathe,12,12,2400,0.5
+19,CNC Lathe,9,11,2300,0.5
+20,CNC Lathe,13,13,2000,0.5
+21,CNC Lathe,11,12,2200,0.5
+22,Injection Molding Machine,8,20,3000,0.5
+23,Injection Molding Machine,9,21,3200,0.5
+24,Injection Molding Machine,7,19,2800,0.5
+25,Injection Molding Machine,10,20,3100,0.5
+26,Injection Molding Machine,6,21,2900,0.5
+27,Injection Molding Machine,8,19,3000,0.5
+28,Injection Molding Machine,9,20,3200,0.5
+29,Injection Molding Machine,7,21,2800,0.5
+30,Injection Molding Machine,10,19,3100,0.5
+31,Injection Molding Machine,6,20,2900,0.5
+32,3D Printer,15,5,2500,0.5
+33,3D Printer,12,6,2600,0.5
+34,3D Printer,18,5,2400,0.5
+35,3D Printer,14,6,2700,0.5
+36,3D Printer,16,5,2500,0.5
+37,3D Printer,13,6,2600,0.5
+38,3D Printer,17,5,2400,0.5
+39,3D Printer,15,6,2700,0.5
+40,3D Printer,12,5,2500,0.5
+41,3D Printer,18,6,2600,0.5
+42,Hydraulic Press,6,10,1500,0.5
+43,Hydraulic Press,5,11,1600,0.5
+44,Hydraulic Press,7,9,1400,0.5
+45,Hydraulic Press,6,10,1500,0.5
+46,Hydraulic Press,8,11,1600,0.5
+47,Hydraulic Press,5,9,1400,0.5
+48,Hydraulic Press,7,10,1500,0.5
+49,Hydraulic Press,6,11,1600,0.5
+50,Hydraulic Press,8,9,1400,0.5
+51,Hydraulic Press,5,10,1500,0.5
+52,Laser Cutter,10,8,2000,0.5
+53,Laser Cutter,12,9,2100,0.5
+54,Laser Cutter,8,7,1900,0.5
+55,Laser Cutter,9,8,2000,0.5
+56,Laser Cutter,11,9,2100,0.5
+57,Laser Cutter,10,7,1900,0.5
+58,Laser Cutter,12,8,2000,0.5
+59,Laser Cutter,8,9,2100,0.5
+60,Laser Cutter,9,7,1900,0.5
+61,Laser Cutter,11,8,2000,0.5
+62,Welding Machine,20,7,1000,0.5
+63,Welding Machine,18,6,1200,0.5
+64,Welding Machine,22,8,900,0.5
+65,Welding Machine,19,7,1000,0.5
+66,Welding Machine,21,6,1100,0.5
+67,Welding Machine,20,8,1200,0.5
+68,Welding Machine,18,7,900,0.5
+69,Welding Machine,22,6,1000,0.5
+70,Welding Machine,19,8,1100,0.5
+71,Welding Machine,21,7,1200,0.5
+72,Grinding Machine,12,6,2500,0.5
+73,Grinding Machine,14,7,2600,0.5
+74,Grinding Machine,10,5,2400,0.5
+75,Grinding Machine,13,6,2500,0.5
+76,Grinding Machine,12,7,2600,0.5
+77,Grinding Machine,14,5,2400,0.5
+78,Grinding Machine,10,6,2500,0.5
+79,Grinding Machine,13,7,2600,0.5
+80,Grinding Machine,12,5,2400,0.5
+81,Grinding Machine,14,6,2500,0.5
+82,Band Saw,18,3,1500,0.5
+83,Band Saw,16,4,1600,0.5
+84,Band Saw,20,2,1400,0.5
+85,Band Saw,17,3,1500,0.5
+86,Band Saw,19,4,1600,0.5
+87,Band Saw,18,2,1400,0.5
+88,Band Saw,16,3,1500,0.5
+89,Band Saw,20,4,1600,0.5
+90,Band Saw,17,2,1400,0.5
+91,Band Saw,19,3,1500,0.5
+92,Drill Press,25,2,1200,0.5
+93,Drill Press,22,3,1300,0.5
+94,Drill Press,28,2,1100,0.5
+95,Drill Press,24,3,1200,0.5
+96,Drill Press,26,2,1300,0.5
+97,Drill Press,23,3,1100,0.5
+98,Drill Press,27,2,1200,0.5
+100,Drill Press,22,2,1100,0.5
+101,Plasma Cutter,10,9,1800,0.5
+102,Plasma Cutter,11,8,1900,0.5
+103,Plasma Cutter,9,10,1700,0.5
+104,Plasma Cutter,12,9,1800,0.5
+105,Plasma Cutter,10,8,1900,0.5
+106,Plasma Cutter,11,10,1700,0.5
+107,Plasma Cutter,9,9,1800,0.5
+108,Plasma Cutter,12,8,1900,0.5
+109,Plasma Cutter,10,10,1700,0.5
+110,Plasma Cutter,11,9,1800,0.5
+111,Extruder,5,25,3000,0.5
+112,Extruder,6,24,3100,0.5
+113,Extruder,4,26,2900,0.5
+114,Extruder,7,25,3000,0.5
+115,Extruder,5,24,3100,0.5
+116,Extruder,6,26,2900,0.5
+117,Extruder,4,25,3000,0.5
+118,Extruder,7,24,3100,0.5
+119,Extruder,5,26,2900,0.5
+120,Extruder,6,25,3000,0.5
+121,Conveyor Belt,30,1,4000,0.5
+122,Conveyor Belt,32,1,4100,0.5
+123,Conveyor Belt,28,2,3900,0.5
+124,Conveyor Belt,31,1,4000,0.5
+125,Conveyor Belt,33,2,4100,0.5
+126,Conveyor Belt,29,1,3900,0.5
+127,Conveyor Belt,32,1,4000,0.5
+128,Conveyor Belt,34,2,4100,0.5
+129,Conveyor Belt,30,1,3900,0.5
+130,Conveyor Belt,33,1,4000,0.5
+131,Air Compressor,10,5,3000,0.5
+132,Air Compressor,11,4,3100,0.5
+133,Air Compressor,9,6,2900,0.5
+134,Air Compressor,12,5,3000,0.5
+135,Air Compressor,10,4,3100,0.5
+136,Air Compressor,11,6,2900,0.5
+137,Air Compressor,9,5,3000,0.5
+138,Air Compressor,12,4,3100,0.5
+139,Air Compressor,10,6,2900,0.5
+140,Air Compressor,11,5,3000,0.5
+141,Forklift,15,4,2000,2.7
+142,Forklift,16,3.5,2100,2.7
+143,Forklift,14,4.5,1900,2.7
+144,Forklift,17,4,2000,2.7
+145,Forklift,15,3.5,2100,2.7
+146,Forklift,16,4.5,1900,2.7
+147,Forklift,14,4,2000,2.7
+148,Forklift,17,3.5,2100,2.7
+149,Forklift,15,4.5,1900,2.7
+150,Forklift,16,4,2000,2.7
 151,Generator,5,10,2500,2.7
 152,Generator,6,9,2600,2.7
 153,Generator,4,11,2400,2.7
@@ -281,7 +281,7 @@
 282,Punching Machine,13,8,2100,0.5
 283,Punching Machine,11,10,1900,0.5
 284,Punching Machine,14,9,2000,0.5
-285,Punching Machine,12,8,100,2100,0.5
+285,Punching Machine,12,8,2100,0.5
 286,Punching Machine,13,10,1900,0.5
 287,Punching Machine,11,9,2000,0.5
 288,Punching Machine,14,8,2100,0.5
