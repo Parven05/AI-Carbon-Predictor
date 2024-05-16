@@ -6,4 +6,4 @@
 ![Logo](https://github.com/Parven05/AI-Carbon-Predictor/assets/101796812/80da8057-5c1f-4bef-8950-125f1f78c045)
 
 # AI-Carbon-Predictor
-Carbon emission calculator utilizing AI models. This involves testing with a variety of models including Artificial Neural Networks (ANN), Adaptive Neuro-Fuzzy Inference System (ANFIS), Autoregressive Integrated Moving Average (ARIMA), Seasonal Autoregressive Integrated Moving Average (SARIMA), K-Nearest Neighbors (KNN), Linear Regression, Logistic Regression, Support Vector Machines (SVM), Random Forest, Gradient Boosting, AdaBoost, and Decision Trees.
+Carbon emission calculator using AI models. This involves testing with a variety of models including Artificial Neural Networks (ANN), Adaptive Neuro-Fuzzy Inference System (ANFIS), Autoregressive Integrated Moving Average (ARIMA), Seasonal Autoregressive Integrated Moving Average (SARIMA), K-Nearest Neighbors (KNN), Linear Regression, Logistic Regression, Support Vector Machines (SVM), Random Forest, Gradient Boosting, AdaBoost, and Decision Trees.
