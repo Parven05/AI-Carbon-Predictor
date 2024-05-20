@@ -1,0 +1,100 @@
+1,Cement,100,0.9
+2,Concrete,500,0.3
+3,Steel,100,1.8
+4,Asphalt,150,0.1
+5,Bricks,100,0.5
+6,Glass,50,0.8
+7,Wood,100,0.2
+8,Aluminium,50,11
+9,Plastics,50,6
+10,Stone,100,0.4
+11,Stone,1000,0.4
+12,Gypsum,50,0.5
+13,Clay,50,0.3
+14,Sand,500,0.1
+15,Gravel,500,0.1
+16,Lime,50,0.2
+17,Fly ash,100,0.1
+18,Timber,100,0.3
+19,Plasticizers,10,6
+20,Rubber,10,5
+21,Fiberglass,10,4
+22,Bitumen,50,3
+23,Insulation,30,2
+24,Clay tiles,50,0.6
+25,Copper,5,4
+26,Lead,2,4.5
+27,Zinc,3,2.5
+28,Paints,10,5
+29,Coatings,20,4.5
+30,Adhesives,15,3.5
+31,Sealants,10,4
+32,Screws,5,3
+33,Nails,10,2
+34,Bolts,5,3.5
+35,Rivets,5,2.5
+36,Wire mesh,10,1.5
+37,Rebar,20,2
+38,Wood panels,30,0.4
+39,MDF,20,0.6
+40,Plywood,40,0.5
+41,OSB,30,0.4
+42,PVC,20,6
+43,EPDM,10,5.5
+44,TPO,10,5
+45,SBS,15,4.5
+46,EPS,10,4
+47,XPS,20,3.5
+48,PU foam,10,4
+49,PIR,15,3.5
+50,Phenolic foam,10,5
+51,Mineral wool,10,3
+52,Fiberglass wool,10,2.5
+53,Cellulose,10,1.5
+54,Rock wool,10,3
+55,AAC blocks,5,0.6
+56,UPVC,5,7
+57,GRC,10,5
+58,Resins,2.5,7.5
+59,Polycarbonate,5,7
+60,Acrylic,5,6.5
+61,Cement board,30,0.7
+62,Steel studs,5,1.8
+63,Aluminum studs,2.5,11
+64,Metal studs,5,2.5
+65,Galvanized steel,5,1.8
+66,Stainless steel,2.5,4
+67,Corrugated iron,10,1.5
+68,Metal roofing,15,2
+69,Metal siding,15,2.5
+70,Aluminum siding,7.5,11
+71,Glass wool,15,2
+72,Reinforced concrete,250,0.3
+73,Treated wood,30,0.3
+74,Particle board,60,0.5
+75,Chipboard,80,0.5
+76,Fiberboard,60,0.6
+77,Stone wool,60,0.3
+78,Aluminium foil,10,11
+79,Galvanized iron,10,1.5
+80,Stainless steel wire,5,4
+81,Bitumen membrane,100,3
+82,PVC membrane,10,6
+83,EPDM membrane,1.5,100
+84,TPO membrane,1.5,80
+85,SBS membrane,3,50
+86,EPS board,20,2
+87,XPS board,20,3
+88,PU foam board,10,2.5
+89,PIR board,15,3
+90,Phenolic foam board,10,5
+91,Mineral wool board,10,3
+92,Fiberglass wool board,10,2.5
+93,Cellulose board,10,1.5
+94,Rock wool board,10,3
+95,AAC blocks board,5,0.6
+96,UPVC board,5,7
+97,GRC board,10,5
+98,Resins board,2.5,7.5
+99,Polycarbonate board,5,7
+100,Acrylic board,5,6.5
