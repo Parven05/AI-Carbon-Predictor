@@ -32,21 +32,11 @@ Sub ProcessData()
     ' Set the starting cell to the currently selected cell
     Set startCell = Selection
 
-    ' Define the table headers and results
-    startCell.Offset(0, 0).Value = "Results"
-    startCell.Offset(1, 0).Value = "MSE"
-    startCell.Offset(2, 0).Value = "RMSE"
-    startCell.Offset(3, 0).Value = "MAE"
-    startCell.Offset(4, 0).Value = "MAPE"
-    startCell.Offset(5, 0).Value = "R2"
-    startCell.Offset(6, 0).Value = "Time (s)"
-    
-    startCell.Offset(1, 1).Value = resultsArray(0)
-    startCell.Offset(2, 1).Value = resultsArray(1)
-    startCell.Offset(3, 1).Value = resultsArray(2)
-    startCell.Offset(4, 1).Value = resultsArray(3)
-    startCell.Offset(5, 1).Value = resultsArray(4)
-    startCell.Offset(6, 1).Value = resultsArray(5)
-    
-    MsgBox "Data processed and tabulated successfully!"
+    startCell.Offset(1, 0).Value = resultsArray(0)
+    startCell.Offset(2, 0).Value = resultsArray(1)
+    startCell.Offset(3, 0).Value = resultsArray(2)
+    startCell.Offset(4, 0).Value = resultsArray(3)
+    startCell.Offset(5, 0).Value = resultsArray(4)
+    startCell.Offset(6, 0).Value = resultsArray(5)
+
 End Sub
