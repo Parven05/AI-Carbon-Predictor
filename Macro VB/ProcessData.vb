@@ -32,11 +32,11 @@ Sub ProcessData()
     ' Set the starting cell to the currently selected cell
     Set startCell = Selection
 
-    startCell.Offset(1, 0).Value = resultsArray(0)
-    startCell.Offset(2, 0).Value = resultsArray(1)
-    startCell.Offset(3, 0).Value = resultsArray(2)
-    startCell.Offset(4, 0).Value = resultsArray(3)
-    startCell.Offset(5, 0).Value = resultsArray(4)
-    startCell.Offset(6, 0).Value = resultsArray(5)
+    startCell.Offset(0, 0).Value = resultsArray(0)
+    startCell.Offset(1, 0).Value = resultsArray(1)
+    startCell.Offset(2, 0).Value = resultsArray(2)
+    startCell.Offset(3, 0).Value = resultsArray(3)
+    startCell.Offset(4, 0).Value = resultsArray(4)
+    startCell.Offset(5, 0).Value = resultsArray(5)
 
 End Sub
