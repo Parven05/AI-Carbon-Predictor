@@ -5,7 +5,7 @@
 
 ![Logo](https://github.com/Parven05/AI-Carbon-Predictor/assets/101796812/80da8057-5c1f-4bef-8950-125f1f78c045)
 
-# Disclaimer
+# _Disclaimer_
 
 This project might not have precise data on model performance and accuracy, but it can give a general overview of machine learning models using Orange and some Python libraries.
 
