@@ -8,3 +8,7 @@
 # Carbon Emission Predictor (CO₂)
 
 Carbon emission calculator using Machine learning. This involves testing with a variety of models including Artificial Neural Networks (ANN), Adaptive Neuro-Fuzzy Inference System (ANFIS), Autoregressive Integrated Moving Average (ARIMA), Seasonal Autoregressive Integrated Moving Average (SARIMA), K-Nearest Neighbors (KNN), Linear Regression, Logistic Regression, Support Vector Machines (SVM), Random Forest, Gradient Boosting, AdaBoost, and Decision Trees.
+
+# Disclaimer
+
+This project might not have precise data on model performance and accuracy, but it can give a general overview of machine learning models using Orange and some Python libraries.
