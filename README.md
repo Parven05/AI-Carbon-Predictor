@@ -17,10 +17,12 @@ Carbon emission calculator using Machine learning. This involves testing with a 
 ```
 You must have Python installed and the following libraries inorder to view the project:
 
-- orange3
-- scikit-learn
-- PySide6
-- matplotlib
-- pandas
+# Versions
+- orange3:            3.37.0
+- scikit-learn:        1.3.2
+- PySide6:             6.7.2
+- matplotlib:         3.9.1
+- pandas:              2.2.2
+
 ```
 
