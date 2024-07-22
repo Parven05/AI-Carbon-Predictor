@@ -15,7 +15,7 @@ Carbon emission calculator using Machine learning. This involves testing with a 
 
 # Dependencies
 ```
-You must have Python installed and the following libraries:
+You must have Python installed and the following libraries inorder to view the project:
 
 - orange3
 - scikit-learn
