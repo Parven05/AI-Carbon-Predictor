@@ -12,3 +12,14 @@ Carbon emission calculator using Machine learning. This involves testing with a 
 # Disclaimer
 
 This project might not have precise data on model performance and accuracy, but it can give a general overview of machine learning models using Orange and some Python libraries.
+
+# Dependencies
+
+You must have Python installed and the following libraries:
+
+- orange3
+- scikit-learn
+- pyqt5
+- matplotlib
+- pandas
+
