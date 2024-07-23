@@ -1,8 +1,8 @@
 from PySide6.QtWidgets import QMainWindow, QWidget, QHBoxLayout, QStackedWidget, QListWidget, QListWidgetItem
 from PySide6.QtCore import Qt
-from gui.widgets import HomeWidget, PredictWidget
-from utils.constants import ENCODING_MAP, TOTAL_FEATURES
-from gui.styles import MAIN_WINDOW_STYLE  # Correct import
+from GUI.widgets import HomeWidget, PredictWidget
+from Utils.constants import ENCODING_MAP, TOTAL_FEATURES
+from GUI.styles import MAIN_WINDOW_STYLE  # Correct import
 
 class MainWindow(QMainWindow):
     def __init__(self, model_handler):

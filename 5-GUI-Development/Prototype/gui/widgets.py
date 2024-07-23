@@ -1,7 +1,7 @@
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QComboBox, QLineEdit, QPushButton, QLabel
 from PySide6.QtGui import QFont
 from PySide6.QtCore import Qt
-from gui.styles import MAIN_WINDOW_STYLE
+from GUI.styles import MAIN_WINDOW_STYLE
 
 class HomeWidget(QWidget):
     def __init__(self):

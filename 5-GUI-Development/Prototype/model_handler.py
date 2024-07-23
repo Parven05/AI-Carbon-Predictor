@@ -1,6 +1,6 @@
 import pickle
 import numpy as np
-from utils.feature_preparation import prepare_features
+from Utils.feature_preparation import prepare_features
 
 class ModelHandler:
     def __init__(self, model_path, total_features):
