@@ -19,23 +19,19 @@ color_palette = {
     'button': '#f79862'       # Orange for buttons
 }
 
-# Constants
-TOTAL_FEATURES = 102
-
 # Function to prepare features
-def prepare_features(categorical_value, numeric_features, encoding_map, total_features):
-    feature_vector = np.zeros(total_features)  # Initialize all features to zero
-    
+def prepare_features(categorical_value, numeric_features, encoding_map):
+    feature_vector = np.zeros(total_features)  # Create a vector with total_features
+
     if categorical_value in encoding_map:
         categorical_index = encoding_map[categorical_value]
         feature_vector[categorical_index] = 1  # Set the categorical feature
-    
-    if len(numeric_features) == 2:
-        feature_vector[-2] = numeric_features[0]  # Set the first numeric feature
-        feature_vector[-1] = numeric_features[1]  # Set the second numeric feature
-    
-    return feature_vector
 
+    if len(numeric_features) == 2:
+        feature_vector[1] = numeric_features[0]  # Set the first numeric feature
+        feature_vector[2] = numeric_features[1]  # Set the second numeric feature
+
+    return feature_vector
 
 # Class to handle the model
 class ModelHandler:
@@ -52,13 +48,11 @@ class ModelHandler:
         feature_vector = np.array(feature_vector).reshape(1, -1)  # Convert to NumPy array and reshape
         return self.model.predict(feature_vector)
 
-
 # Basic GUI to show model is loaded
 class MainWindow(QMainWindow):
     def __init__(self, initial_model_path):
         super().__init__()
         
-        self.total_features = TOTAL_FEATURES
         self.model_handler = ModelHandler(initial_model_path, self.total_features)
         
         self.setWindowTitle("Smart Build Co2 Predictor")
@@ -215,7 +209,7 @@ class MainWindow(QMainWindow):
 
         # Input field for mass
         self.mass_input = QLineEdit(input_frame)
-        self.mass_input.setPlaceholderText("Enter mass used")
+        self.mass_input.setPlaceholderText("Enter mass")
         self.mass_input.setStyleSheet(f"""
             padding: 5px;
             border: 1px solid {color_palette['frame']};
@@ -223,7 +217,7 @@ class MainWindow(QMainWindow):
         """)
         input_layout.addWidget(self.mass_input)
 
-        # Input field for carbon emission factor
+        # Input field for emission factor
         self.emission_input = QLineEdit(input_frame)
         self.emission_input.setPlaceholderText("Enter carbon emission factor")
         self.emission_input.setStyleSheet(f"""
@@ -234,9 +228,9 @@ class MainWindow(QMainWindow):
         input_layout.addWidget(self.emission_input)
 
         # Predict button
-        self.predict_button = QPushButton("Predict", input_frame)
-        self.predict_button.clicked.connect(self.predict)
-        self.predict_button.setStyleSheet(f"""
+        predict_button = QPushButton("Predict", input_frame)
+        predict_button.clicked.connect(self.predict)
+        predict_button.setStyleSheet(f"""
             background-color: {color_palette['button']};
             color: {color_palette['text']};
             border: 1px solid {color_palette['frame']};
@@ -244,7 +238,7 @@ class MainWindow(QMainWindow):
             border-radius: 5px;
             font-weight: bold;
         """)
-        input_layout.addWidget(self.predict_button)
+        input_layout.addWidget(predict_button)
 
         # Add the input frame to the production layout
         production_layout.addWidget(input_frame)
@@ -252,135 +246,17 @@ class MainWindow(QMainWindow):
         # Add the production layout to the central content layout
         self.central_content_layout.addLayout(production_layout)
 
-    def show_transportation_stage_page(self):
-        # Clear the central content layout
-        self.clear_central_content()
+    def load_model(self, model_path):
+        # Reload model with the selected file
+        self.model_handler = ModelHandler(model_path, self.total_features)
+        QMessageBox.information(self, "Model Loaded", f"Model '{model_path}' has been loaded successfully.")
 
-        # Create a horizontal layout for the transportation stage page
-        transportation_layout = QHBoxLayout()
-        transportation_layout.setContentsMargins(50, 50, 50, 50)  # Add margins for spacing
-
-        # Image on the left
-        self.image_label = QLabel(self)
-        self.image_pixmap = QPixmap('logo.png')  # Replace with your image path
-        self.image_pixmap = self.image_pixmap.scaled(200, 200, Qt.AspectRatioMode.KeepAspectRatio, Qt.SmoothTransformation)  # Resize with smooth transformation
-        self.image_label.setPixmap(self.image_pixmap)
-        self.image_label.setAlignment(Qt.AlignCenter)
-        transportation_layout.addWidget(self.image_label)
-
-        # Spacer to push the input box to the right
-        spacer = QWidget()
-        spacer.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        transportation_layout.addWidget(spacer)
-
-        # Create a QFrame to contain the input fields
-        input_frame = QFrame(self)
-        input_frame.setFrameShape(QFrame.StyledPanel)  # Set the frame shape to a styled panel
-        input_frame.setStyleSheet(f"""
-            background-color: {color_palette['background']};
-            border: 1px solid {color_palette['frame']};
-            border-radius: 10px;
-            padding: 20px;
-        """)  # Set background color and border style
-        input_layout = QVBoxLayout(input_frame)
-        input_layout.setSpacing(10)
-
-        # Explanatory text
-        explanation_text = QLabel("Enter the details for the transportation stage.", input_frame)
-        explanation_text.setStyleSheet(f"color: {color_palette['text']};")
-        input_layout.addWidget(explanation_text)
-
-        # Searchable dropdown for raw materials
-        self.raw_material_dropdown = QComboBox(input_frame)
-        self.raw_material_dropdown.addItems(["Material 1", "Material 2", "Material 3"])  # Add dummy items
-        self.raw_material_dropdown.setEditable(True)  # Make it searchable
-        self.raw_material_dropdown.lineEdit().setPlaceholderText("Search raw materials...")
-        self.raw_material_dropdown.setStyleSheet(f"""
-            padding: 5px;
-            border: 1px solid {color_palette['frame']};
-            border-radius: 5px;
-        """)
-        input_layout.addWidget(self.raw_material_dropdown)
-
-        # Input field for mass used
-        self.mass_input_transportation = QLineEdit(input_frame)
-        self.mass_input_transportation.setPlaceholderText("Enter mass used")
-        self.mass_input_transportation.setStyleSheet(f"""
-            padding: 5px;
-            border: 1px solid {color_palette['frame']};
-            border-radius: 5px;
-        """)
-        input_layout.addWidget(self.mass_input_transportation)
-
-        # Input field for distance traveled
-        self.distance_input = QLineEdit(input_frame)
-        self.distance_input.setPlaceholderText("Enter distance traveled")
-        self.distance_input.setStyleSheet(f"""
-            padding: 5px;
-            border: 1px solid {color_palette['frame']};
-            border-radius: 5px;
-        """)
-        input_layout.addWidget(self.distance_input)
-
-        # Input field for fuel consumption
-        self.fuel_input = QLineEdit(input_frame)
-        self.fuel_input.setPlaceholderText("Enter fuel consumption")
-        self.fuel_input.setStyleSheet(f"""
-            padding: 5px;
-            border: 1px solid {color_palette['frame']};
-            border-radius: 5px;
-        """)
-        input_layout.addWidget(self.fuel_input)
-
-        # Input field for carbon emission factor
-        self.emission_input_transportation = QLineEdit(input_frame)
-        self.emission_input_transportation.setPlaceholderText("Enter carbon emission factor")
-        self.emission_input_transportation.setStyleSheet(f"""
-            padding: 5px;
-            border: 1px solid {color_palette['frame']};
-            border-radius: 5px;
-        """)
-        input_layout.addWidget(self.emission_input_transportation)
-
-        # Predict button
-        self.predict_button_transportation = QPushButton("Predict", input_frame)
-        self.predict_button_transportation.clicked.connect(self.predict_transportation)
-        self.predict_button_transportation.setStyleSheet(f"""
-            background-color: {color_palette['button']};
-            color: {color_palette['text']};
-            border: 1px solid {color_palette['frame']};
-            padding: 10px;
-            border-radius: 5px;
-            font-weight: bold;
-        """)
-        input_layout.addWidget(self.predict_button_transportation)
-
-        # Add the input frame to the transportation layout
-        transportation_layout.addWidget(input_frame)
-
-        # Add the transportation layout to the central content layout
-        self.central_content_layout.addLayout(transportation_layout)
-
-    def predict_transportation(self):
-        raw_material = self.raw_material_dropdown.currentText()
-        try:
-            mass = float(self.mass_input_transportation.text())
-            distance = float(self.distance_input.text())
-            fuel_consumption = float(self.fuel_input.text())
-            emission_factor = float(self.emission_input_transportation.text())
-        except ValueError:
-            QMessageBox.warning(self, "Input Error", "Please enter valid numeric values for all fields.")
-            return
-
-        # Encoding map for raw materials
-        encoding_map = {"Material 1": 0, "Material 2": 1, "Material 3": 2}
-        
-        # Use the loaded model to predict
-        prediction = self.model_handler.predict(raw_material, [mass, distance, fuel_consumption, emission_factor], encoding_map)
-        
-        # Display the result
-        QMessageBox.information(self, "Prediction Result", f"The predicted output is: {prediction[0]}")
-
+    def clear_central_content(self):
+        # Remove all widgets from the central content layout
+        while self.central_content_layout.count():
+            item = self.central_content_layout.takeAt(0)
+            if item.widget():
+                item.widget().deleteLater()
 
     def predict(self):
         material = self.material_dropdown.currentText()
@@ -393,37 +269,24 @@ class MainWindow(QMainWindow):
 
         # Encoding map for categorical values (materials)
         encoding_map = {"Wood": 0, "Steel": 1, "Cement": 2}
+
+        # Prepare feature vector
+        feature_vector = prepare_features(material, [mass, emission_factor], encoding_map, self.total_features)
         
+        # Ensure the feature vector has the correct shape
+        feature_vector = np.array(feature_vector).reshape(1, -1)
+
         # Use the loaded model to predict
-        prediction = self.model_handler.predict(material, [mass, emission_factor], encoding_map)
-        
-        # Display the result
-        QMessageBox.information(self, "Prediction Result", f"The predicted output is: {prediction[0]}")
+        try:
+            prediction = self.model_handler.predict(material, [mass, emission_factor], encoding_map)
+            # Display the result
+            QMessageBox.information(self, "Prediction Result", f"The predicted output is: {prediction[0]}")
+        except Exception as e:
+            QMessageBox.critical(self, "Prediction Error", f"An error occurred during prediction: {str(e)}")
 
-    def load_model(self, model_path):
-        self.model_handler = ModelHandler(model_path, self.total_features)
-        QMessageBox.information(self, "Model Loaded", f"Model loaded from: {model_path}")
-
-    def clear_central_content(self):
-        # Clear the central content layout
-        while self.central_content_layout.count():
-            item = self.central_content_layout.takeAt(0)
-            if item.widget():
-                item.widget().deleteLater()
-            elif item.layout():
-                self.clear_layout(item.layout())
-
-    def clear_layout(self, layout):
-        while layout.count():
-            item = layout.takeAt(0)
-            if item.widget():
-                item.widget().deleteLater()
-            elif item.layout():
-                self.clear_layout(item.layout())
-
+# Run the application
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    initial_model_path = './Gradient-Boosting-A1.pkcls'  # Replace with your initial model path
-    window = MainWindow(initial_model_path)
+    window = MainWindow('Gradient-Boosting-A1.pkl')  # Replace with your initial model path
     window.show()
     sys.exit(app.exec())
