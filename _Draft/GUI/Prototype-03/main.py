@@ -46,6 +46,57 @@ class ProductionStageWindow(QDialog):
         # Add the form layout to the main layout
         layout.addLayout(form_layout)
 
+class TransportationToFactoryStageWindow(QDialog):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Transportation to Factory Stage")
+        self.setGeometry(200, 200, 400, 350)
+        layout = QVBoxLayout(self)
+
+        # Text for Transportation to Factory Stage page
+        transportation_text = QLabel(
+            """Provide the following information to estimate emissions for the transportation to factory stage:
+            
+1. Select material type.
+2. Enter mass used.
+3. Enter distance traveled.
+4. Enter fuel consumption.
+5. Enter carbon emission factor.
+            """, self)
+        layout.addWidget(transportation_text)
+
+        # Create the form layout
+        form_layout = QFormLayout()
+
+        # Create widgets for the form
+        self.material_combo = QComboBox()
+        self.material_combo.addItems(['Wood', 'Steel', 'Concrete'])  # Example items
+
+        self.mass_input = QLineEdit()
+        self.mass_input.setPlaceholderText('Enter mass used')
+
+        self.distance_input = QLineEdit()
+        self.distance_input.setPlaceholderText('Enter distance traveled')
+
+        self.fuel_consumption_input = QLineEdit()
+        self.fuel_consumption_input.setPlaceholderText('Enter fuel consumption')
+
+        self.carbon_factor_input = QLineEdit()
+        self.carbon_factor_input.setPlaceholderText('Enter carbon emission factor')
+
+        # Add form widgets to the form layout
+        form_layout.addRow('Material Type:', self.material_combo)
+        form_layout.addRow('Mass Used:', self.mass_input)
+        form_layout.addRow('Distance Traveled:', self.distance_input)
+        form_layout.addRow('Fuel Consumption:', self.fuel_consumption_input)
+        form_layout.addRow('Carbon Emission Factor:', self.carbon_factor_input)
+
+        # Create a button
+        predict_button = QPushButton('Predict')
+        form_layout.addRow(predict_button)
+
+        # Add the form layout to the main layout
+        layout.addLayout(form_layout)
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -120,8 +171,7 @@ By providing accurate insights into your carbon footprint at each stage, we empo
         elif button_name == "Production Stage":
             self.open_window(ProductionStageWindow())
         elif button_name == "Transportation to Factory Stage":
-            # Create and show window for Transportation to Factory Stage
-            pass
+            self.open_window(TransportationToFactoryStageWindow())
         elif button_name == "Manufacturing Stage":
             # Create and show window for Manufacturing Stage
             pass
