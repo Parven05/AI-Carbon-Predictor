@@ -18,9 +18,9 @@ class ProductionStageWindow(QDialog):
         production_stage_text = QLabel(
             """Provide the following information to estimate emissions:
             
-1. Select material type.
-2. Enter mass used.
-3. Enter carbon emission factor.
+1. Select Raw material type.
+2. Enter mass used (kg) | Recommnded: 50 - 2000 (kg).
+3. Enter carbon emission factor (kgCO2/kg).
             """, self)
         layout.addWidget(production_stage_text)
 
@@ -32,18 +32,18 @@ class ProductionStageWindow(QDialog):
         self.material_combo.addItems(['Wood', 'Steel', 'Concrete'])  # Example items
 
         self.mass_input = QLineEdit()
-        self.mass_input.setPlaceholderText('Enter mass used')
+        self.mass_input.setPlaceholderText('Enter mass used (kg)')
 
         self.carbon_factor_input = QLineEdit()
-        self.carbon_factor_input.setPlaceholderText('Enter carbon emission factor')
+        self.carbon_factor_input.setPlaceholderText('Enter emission factor (kgCO2/kg)')
 
         # Add form widgets to the form layout
-        form_layout.addRow('Material Type:', self.material_combo)
+        form_layout.addRow('Raw Material Type:', self.material_combo)
         form_layout.addRow('Mass Used:', self.mass_input)
         form_layout.addRow('Carbon Emission Factor:', self.carbon_factor_input)
 
         # Create a button
-        predict_button = QPushButton('Predict')
+        predict_button = QPushButton('Predict Total Carbon Emission')
         predict_button.clicked.connect(self.predict)
         form_layout.addRow(predict_button)
 
@@ -96,7 +96,7 @@ class ProductionStageWindow(QDialog):
         # Perform prediction
         try:
             prediction = self.model.predict(features)[0]
-            self.result_label.setText(f"Predicted Emission: {prediction:.2f}")
+            self.result_label.setText(f"Predicted Total Carbon Emission: {prediction:.2f} kgCo2e")
         except Exception as e:
             QMessageBox.critical(self, "Prediction Error", f"An error occurred during prediction: {str(e)}")
 
