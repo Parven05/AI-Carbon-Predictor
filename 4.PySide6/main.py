@@ -14,7 +14,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        self.setWindowTitle("Smart Build CO2 Predictor")
+        self.setWindowTitle("Smart Carbon Predictor")
         self.setWindowIcon(QIcon("resources/favicon.png"))
         self.setFixedSize(670, 560)
 

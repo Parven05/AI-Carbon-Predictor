@@ -66,7 +66,7 @@ class TransportationToFactoryStageWindow(QDialog):
         form_layout.addRow('Material Type:', self.material_combo)
         form_layout.addRow('Mass Used:', self.mass_input)
         form_layout.addRow('Distance Traveled:', self.distance_input)
-        form_layout.addRow('Fuel Consumption (litres/km):', self.fuel_consumption_input)
+        form_layout.addRow('Fuel Consumption Rate:', self.fuel_consumption_input)
         form_layout.addRow('Carbon Emission Factor:', self.carbon_factor_input)
 
         # Create a button

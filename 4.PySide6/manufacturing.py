@@ -63,7 +63,7 @@ class ManufacturingStageWindow(QDialog):
         # Add form widgets to the form layout
         form_layout.addRow('Manufacturing Equipment:', self.equipment_combo)
         form_layout.addRow('Quantity:', self.quantity_input)
-        form_layout.addRow('Fuel Consumption Rate (litres/h):', self.fuel_consumption_input)
+        form_layout.addRow('Fuel Consumption Rate:', self.fuel_consumption_input)
         form_layout.addRow('Hours of Operation:', self.hours_input)
         form_layout.addRow('Carbon Emission Factor:', self.carbon_factor_input)
 

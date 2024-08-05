@@ -8,7 +8,7 @@ class TransportationToSiteStageWindow(QDialog):
         super().__init__()
         self.setWindowTitle("Transportation to Site Stage")
         self.setWindowIcon(QIcon("resources/A4-favicon.png"))
-        self.setFixedSize(400,500)
+        self.setFixedSize(400, 500)
         layout = QVBoxLayout(self)
 
         # Load the pickled model
@@ -19,10 +19,10 @@ class TransportationToSiteStageWindow(QDialog):
             """Provide the following information to estimate emissions:
             
 1. Select material type.
-2. Enter mass used.
-3. Enter distance traveled.
-4. Enter fuel consumption.
-5. Enter carbon emission factor.
+2. Enter mass used (kg).
+3. Enter distance traveled (km).
+4. Fuel consumption is set to a fixed value.
+5. Carbon emission factor is automatically calculated.
             """, self)
         layout.addWidget(transportation_text)
 
@@ -31,30 +31,37 @@ class TransportationToSiteStageWindow(QDialog):
 
         # Create widgets for the form
         self.material_combo = QComboBox()
-        self.material_combo.addItems(['Chipboard', 'Metal Roofing', 'Glass Wool'])  # Example items
+        self.materials = [
+            'Stone wool', 'AAC blocks', 'Resins', 'Cement board',
+            'Aluminium studs', 'Stainless steel', 'Metal siding',
+            'Fiberboard', 'Duct tape', 'Door frame'
+        ]
+        self.material_combo.addItems(self.materials)
+        self.material_combo.currentIndexChanged.connect(self.update_carbon_factor)
 
         self.mass_input = QLineEdit()
-        self.mass_input.setPlaceholderText('Enter mass used')
+        self.mass_input.setPlaceholderText('Enter mass used (kg)')
 
         self.distance_input = QLineEdit()
-        self.distance_input.setPlaceholderText('Enter distance traveled')
+        self.distance_input.setPlaceholderText('Enter distance traveled (km)')
 
         self.fuel_consumption_input = QLineEdit()
-        self.fuel_consumption_input.setPlaceholderText('Enter fuel consumption')
+        self.fuel_consumption_input.setText('0.4')
+        self.fuel_consumption_input.setReadOnly(True)  # Make this field read-only
 
         self.carbon_factor_input = QLineEdit()
-        self.carbon_factor_input.setPlaceholderText('Enter carbon emission factor')
+        self.carbon_factor_input.setReadOnly(True)  # Make this field read-only
 
         # Add form widgets to the form layout
         form_layout.addRow('Material Type:', self.material_combo)
         form_layout.addRow('Mass Used:', self.mass_input)
         form_layout.addRow('Distance Traveled:', self.distance_input)
-        form_layout.addRow('Fuel Consumption:', self.fuel_consumption_input)
+        form_layout.addRow('Fuel Consumption Rate:', self.fuel_consumption_input)
         form_layout.addRow('Carbon Emission Factor:', self.carbon_factor_input)
 
         # Create a button and connect it to the predict method
-        predict_button = QPushButton('Predict')
-        predict_button.clicked.connect(self.predict)  # Connect button to predict method
+        predict_button = QPushButton('Predict Total Carbon Emission')
+        predict_button.clicked.connect(self.predict)
         form_layout.addRow(predict_button)
 
         # Add the form layout to the main layout
@@ -64,6 +71,9 @@ class TransportationToSiteStageWindow(QDialog):
         self.result_label = QLabel("", self)
         layout.addWidget(self.result_label)
 
+        # Update carbon factor based on initial selection
+        self.update_carbon_factor()
+
     def load_model(self):
         # Load the pickled model from file
         model_path = 'models/Gradient-Boosting-A4.pkl'  # Path to your model
@@ -71,12 +81,30 @@ class TransportationToSiteStageWindow(QDialog):
             model = pickle.load(file)
         return model
 
+    def update_carbon_factor(self):
+        # Update the carbon emission factor based on selected material
+        material_factors = {
+            'Stone wool': 3,
+            'AAC blocks': 0.6,
+            'Resins': 7.5,
+            'Cement board': 0.7,
+            'Aluminium studs': 11,
+            'Stainless steel': 4,
+            'Metal siding': 2.5,
+            'Fiberboard': 0.6,
+            'Duct tape': 0.3,
+            'Door frame': 0.6
+        }
+        selected_material = self.material_combo.currentText()
+        carbon_factor = material_factors.get(selected_material, "")
+        self.carbon_factor_input.setText(str(carbon_factor))
+
     def predict(self):
         # Get the input values
         material = self.material_combo.currentText()
         mass = self.mass_input.text()
         distance_traveled = self.distance_input.text()
-        fuel_consumption = self.fuel_consumption_input.text()
+        fuel_consumption = self.fuel_consumption_input.text()  # This will always be 0.4
         carbon_factor = self.carbon_factor_input.text()
 
         if not mass or not distance_traveled or not fuel_consumption or not carbon_factor:
@@ -93,7 +121,7 @@ class TransportationToSiteStageWindow(QDialog):
             return
 
         # Convert categorical input to numerical
-        material_mapping = {'Chipboard': 0, 'Metal Roofing': 1, 'Glass Wool': 2}
+        material_mapping = {mat: idx for idx, mat in enumerate(self.materials)}
         material_num = material_mapping.get(material, -1)
 
         if material_num == -1:
@@ -112,6 +140,6 @@ class TransportationToSiteStageWindow(QDialog):
         # Perform prediction
         try:
             prediction = self.model.predict(features)[0]
-            self.result_label.setText(f"Predicted Emission: {prediction:.2f}")
+            self.result_label.setText(f"Predicted Total Carbon Emission: {prediction:.2f} kgCO2e")
         except Exception as e:
             QMessageBox.critical(self, "Prediction Error", f"An error occurred during prediction: {str(e)}")
