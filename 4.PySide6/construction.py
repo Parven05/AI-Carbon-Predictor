@@ -1,5 +1,5 @@
 import pickle
-from PySide6.QtWidgets import QDialog, QVBoxLayout, QLabel, QFormLayout, QLineEdit, QComboBox, QPushButton, QMessageBox
+from PySide6.QtWidgets import QDialog, QVBoxLayout, QTextEdit, QFormLayout, QLineEdit, QComboBox, QPushButton, QMessageBox, QLabel
 from PySide6.QtGui import QIcon
 import pandas as pd
 
@@ -8,21 +8,24 @@ class ConstructionStageWindow(QDialog):
         super().__init__()
         self.setWindowTitle("Construction Stage")
         self.setWindowIcon(QIcon("resources/A5-favicon.png"))
-        self.setFixedSize(400, 500)
+        self.setFixedSize(400, 520)
         layout = QVBoxLayout(self)
 
         # Load the pickled model
         self.model = self.load_model()
 
         # Text for Construction Stage page
-        construction_text = QLabel(
+        construction_text = QTextEdit(self)
+        construction_text.setPlainText(
             """Provide the following information to estimate emissions:
             
 1. Select machinery.
 2. Enter quantity.
-3. The fuel consumption rate and emission factor are auto-filled based on the selected machinery.
-4. Enter hours of operation.
-            """, self)
+3. Fuel consumption rate is automatically assigned based on equipment selected (litres/h).
+4. Enter hours of operation (h).
+5. Carbon emission factor is automatically assigned based on equipment selected (kgCO2/kg).
+            """)
+        construction_text.setReadOnly(True)
         layout.addWidget(construction_text)
 
         # Create the form layout
@@ -116,7 +119,7 @@ class ConstructionStageWindow(QDialog):
             hours = float(hours)
             carbon_factor = float(carbon_factor)
         except ValueError:
-            QMessageBox.warning(self, "Input Error", "Quantity, Hours of Operation must be numeric.")
+            QMessageBox.warning(self, "Input Error", "Quantity and Hours of Operation must be numeric.")
             return
 
         # Convert categorical input to numerical

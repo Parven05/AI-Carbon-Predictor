@@ -1,5 +1,5 @@
 import pickle
-from PySide6.QtWidgets import QDialog, QVBoxLayout, QLabel, QFormLayout, QLineEdit, QComboBox, QPushButton, QMessageBox
+from PySide6.QtWidgets import QDialog, QVBoxLayout, QTextEdit, QFormLayout, QLineEdit, QComboBox, QPushButton, QMessageBox, QLabel
 from PySide6.QtGui import QIcon
 import pandas as pd
 
@@ -8,22 +8,24 @@ class ManufacturingStageWindow(QDialog):
         super().__init__()
         self.setWindowTitle("Manufacturing Stage")
         self.setWindowIcon(QIcon("resources/A3-favicon.png"))
-        self.setFixedSize(400, 500)
+        self.setFixedSize(400, 520)
         layout = QVBoxLayout(self)
 
         # Load the pickled model
         self.model = self.load_model()
 
         # Text for Manufacturing Stage page
-        manufacturing_text = QLabel(
+        manufacturing_text = QTextEdit(self)
+        manufacturing_text.setPlainText(
             """Provide the following information to estimate emissions:
             
 1. Select manufacturing equipment/machinery.
 2. Enter quantity.
-3. Fuel consumption rate will be automatically set based on the selected equipment.
-4. Enter hours of operation.
-5. Carbon emission factor is automatically set to 0.5.
-            """, self)
+3. Fuel consumption rate is automatically assigned based on equipment selected (litres/h).
+4. Enter hours of operation (h).
+5. Carbon emission factor is automatically assigned based on equipment selected (kgCO2/kg).
+            """)
+        manufacturing_text.setReadOnly(True)
         layout.addWidget(manufacturing_text)
 
         # Create the form layout

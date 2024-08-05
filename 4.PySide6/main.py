@@ -56,17 +56,6 @@ class MainWindow(QMainWindow):
         self.text_edit = QTextEdit(self)
         self.text_edit.setReadOnly(True)
         self.text_edit.setTextInteractionFlags(Qt.TextBrowserInteraction)
-
-        # Simplified stylesheet
-        self.text_edit.setStyleSheet("""
-            QTextEdit {
-                background-color: #2C2C2C;
-                color: white;
-                border: none;
-                padding: 10px;
-            }
-        """)
-        
         self.text_edit.setText(
             """Welcome to the Carbon Emission Calculator!
 

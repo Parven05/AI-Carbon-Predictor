@@ -1,5 +1,5 @@
 import pickle
-from PySide6.QtWidgets import QDialog, QVBoxLayout, QLabel, QFormLayout, QLineEdit, QComboBox, QPushButton, QMessageBox
+from PySide6.QtWidgets import QDialog, QVBoxLayout, QLabel, QFormLayout, QLineEdit, QComboBox, QPushButton, QTextEdit, QMessageBox
 from PySide6.QtGui import QIcon
 import pandas as pd
 
@@ -8,20 +8,23 @@ class ProductionStageWindow(QDialog):
         super().__init__()
         self.setWindowTitle("Production Stage")
         self.setWindowIcon(QIcon("resources/A1-favicon.png"))
-        self.setFixedSize(400, 400)
+        self.setFixedSize(400, 378)
         layout = QVBoxLayout(self)
 
         # Load the pickled model
         self.model = self.load_model()
 
         # Text for Production Stage page
-        production_stage_text = QLabel(
+        production_stage_text = QTextEdit(self)
+        production_stage_text.setReadOnly(True)  # Set QTextEdit to read-only
+        production_stage_text.setText(
             """Provide the following information to estimate emissions:
             
-1. Select Raw material type.
-2. Enter mass used (kg) | Recommended: 50 - 2000 (kg).
-3. Carbon emission factor is automatically assigned based on material selected.
-            """, self)
+1. Select raw material type.
+2. Enter mass used (kg).
+3. Carbon emission factor is automatically assigned based on material selected (kgCO2/kg).
+         """
+        )
         layout.addWidget(production_stage_text)
 
         # Create the form layout
@@ -29,22 +32,23 @@ class ProductionStageWindow(QDialog):
 
         # Create a dropdown for materials
         self.material_combo = QComboBox()
-        self.materials = ['Cement', 'Concrete', 'Steel', 'Asphalt', 'Bricks', 'Glass', 'Wood', 'Aluminium', 'Stone', 'Plastics']
+        self.materials = ['Aluminium', 'Asphalt', 'Bricks', 'Cement', 'Concrete', 'Glass', 'Plastics', 'Steel', 'Stone', 'Wood']
         self.material_combo.addItems(self.materials)
         self.material_combo.currentIndexChanged.connect(self.update_carbon_factor)
 
         self.carbon_factors = {
-            'Cement': 0.9,
-            'Concrete': 0.3,
-            'Steel': 1.8,
+            'Aluminium': 11.0,
             'Asphalt': 0.1,
             'Bricks': 0.5,
+            'Cement': 0.9,
+            'Concrete': 0.3,
             'Glass': 0.8,
-            'Wood': 0.2,
-            'Aluminium': 11.0,
+            'Plastics': 6.0,
+            'Steel': 1.8,
             'Stone': 0.4,
-            'Plastics': 6.0
+            'Wood': 0.2
         }
+
 
         self.mass_input = QLineEdit()
         self.mass_input.setPlaceholderText('Enter mass used (kg)')

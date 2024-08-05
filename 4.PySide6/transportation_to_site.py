@@ -1,5 +1,5 @@
 import pickle
-from PySide6.QtWidgets import QDialog, QVBoxLayout, QLabel, QFormLayout, QLineEdit, QComboBox, QPushButton, QMessageBox
+from PySide6.QtWidgets import QDialog, QVBoxLayout, QTextEdit, QFormLayout, QLineEdit, QComboBox, QPushButton, QMessageBox, QLabel
 from PySide6.QtGui import QIcon
 import pandas as pd
 
@@ -8,22 +8,24 @@ class TransportationToSiteStageWindow(QDialog):
         super().__init__()
         self.setWindowTitle("Transportation to Site Stage")
         self.setWindowIcon(QIcon("resources/A4-favicon.png"))
-        self.setFixedSize(400, 500)
+        self.setFixedSize(400, 520)
         layout = QVBoxLayout(self)
 
         # Load the pickled model
         self.model = self.load_model()
 
         # Text for Transportation to Site Stage page
-        transportation_text = QLabel(
+        transportation_text = QTextEdit(self)
+        transportation_text.setPlainText(
             """Provide the following information to estimate emissions:
             
 1. Select material type.
 2. Enter mass used (kg).
 3. Enter distance traveled (km).
-4. Fuel consumption is set to a fixed value.
-5. Carbon emission factor is automatically calculated.
-            """, self)
+4. Fuel consumption rate is automatically assigned based on equipment selected (litres/h).
+5. Carbon emission factor is automatically assigned based on equipment selected (kgCO2/kg).
+            """)
+        transportation_text.setReadOnly(True)
         layout.addWidget(transportation_text)
 
         # Create the form layout
