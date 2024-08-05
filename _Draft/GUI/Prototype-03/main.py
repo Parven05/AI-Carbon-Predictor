@@ -1,7 +1,51 @@
-from PySide6.QtWidgets import QApplication, QMainWindow, QMenuBar, QLabel, QVBoxLayout, QWidget, QTextEdit
+from PySide6.QtWidgets import (QApplication, QMainWindow, QMenuBar, QLabel, QVBoxLayout, 
+                               QWidget, QTextEdit, QFormLayout, QLineEdit, QComboBox, QPushButton, QDialog)
 from PySide6.QtGui import QAction, QPixmap
 from PySide6.QtCore import Qt
 import sys
+
+class ProductionStageWindow(QDialog):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Production Stage")
+        self.setGeometry(200, 200, 400, 300)
+        layout = QVBoxLayout(self)
+
+        # Text for Production Stage page
+        production_stage_text = QLabel(
+            """Provide the following information to estimate emissions for the production stage:
+            
+1. Select material type.
+2. Enter mass used.
+3. Enter carbon emission factor.
+            """, self)
+        layout.addWidget(production_stage_text)
+
+        # Create the form layout
+        form_layout = QFormLayout()
+
+        # Create widgets for the form
+        self.material_combo = QComboBox()
+        self.material_combo.addItems(['Wood', 'Steel', 'Concrete'])  # Example items
+
+        self.mass_input = QLineEdit()
+        self.mass_input.setPlaceholderText('Enter mass used')
+
+        self.carbon_factor_input = QLineEdit()
+        self.carbon_factor_input.setPlaceholderText('Enter carbon emission factor')
+
+        # Add form widgets to the form layout
+        form_layout.addRow('Material Type:', self.material_combo)
+        form_layout.addRow('Mass Used:', self.mass_input)
+        form_layout.addRow('Carbon Emission Factor:', self.carbon_factor_input)
+
+        # Create a button
+        predict_button = QPushButton('Predict')
+        form_layout.addRow(predict_button)
+
+        # Add the form layout to the main layout
+        layout.addLayout(form_layout)
+
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -59,8 +103,6 @@ By providing accurate insights into your carbon footprint at each stage, we empo
 """
         )
         self.text_edit.setStyleSheet("QTextEdit { border: none; }")  # Remove border
-
-        # Add the text edit widget to the layout
         self.layout.addWidget(self.text_edit)
 
         # Set default view to "Get Started"
@@ -75,11 +117,26 @@ By providing accurate insights into your carbon footprint at each stage, we empo
             self.image_label.setAlignment(Qt.AlignCenter)
             self.image_label.show()
             self.text_edit.show()
-        else:
-            self.image_label.hide()  # Hide the image if other menus are clicked
-            self.text_edit.hide()    # Hide the text if other menus are clicked
+        elif button_name == "Production Stage":
+            self.open_window(ProductionStageWindow())
+        elif button_name == "Transportation to Factory Stage":
+            # Create and show window for Transportation to Factory Stage
+            pass
+        elif button_name == "Manufacturing Stage":
+            # Create and show window for Manufacturing Stage
+            pass
+        elif button_name == "Transportation to Site Stage":
+            # Create and show window for Transportation to Site Stage
+            pass
+        elif button_name == "Construction Stage":
+            # Create and show window for Construction Stage
+            pass
+        elif button_name == "Total Carbon Emission":
+            # Create and show window for Total Carbon Emission
+            pass
 
-        print(f"{button_name} menu item clicked")
+    def open_window(self, window):
+        window.exec_()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
