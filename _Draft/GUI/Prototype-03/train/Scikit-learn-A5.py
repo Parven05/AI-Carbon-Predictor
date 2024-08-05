@@ -9,18 +9,18 @@ from sklearn.metrics import mean_squared_error
 from xgboost import XGBRegressor
 
 # Load the dataset
-df = pd.read_csv('train/A4-Transportation-to-Site-Training.csv')
+df = pd.read_csv('train/A5-Construction-Training.csv')
 
 # Drop the 'No' column as it's not needed for modeling
 df = df.drop(columns=['No'])
 
 # Define features and generate target
-X = df[['Materials', 'Mass_used', 'Distance_traveled','Fuel_consumption_rate','Carbon_emission_factor']]  # Features
-y = df['Mass_used'] * df['Distance_traveled'] * df['Fuel_consumption_rate'] * df['Carbon_emission_factor']  # Target
+X = df[['Machinery', 'Quantity', 'Fuel_consumption_rate','Hours_of_operation','Carbon_emission_factor']]  # Features
+y = df['Quantity'] * df['Fuel_consumption_rate'] * df['Hours_of_operation'] * df['Carbon_emission_factor']  # Target
 
 # Define the categorical and numeric features
-categorical_feature = 'Materials'
-numeric_features = ['Mass_used', 'Distance_traveled','Fuel_consumption_rate', 'Carbon_emission_factor']
+categorical_feature = 'Machinery'
+numeric_features = ['Quantity', 'Fuel_consumption_rate','Hours_of_operation', 'Carbon_emission_factor']
 
 # Preprocessing for numeric data
 numeric_transformer = Pipeline(steps=[
@@ -76,7 +76,7 @@ print("\nComparison of Actual vs. Predicted Values:")
 print(comparison_df)
 
 # Save the pipeline (model and preprocessing) using pickle
-with open('models/Gradient-Boosting-A4.pkl', 'wb') as file:
+with open('models/Gradient-Boosting-A5.pkl', 'wb') as file:
     pickle.dump(pipeline, file)
 
-print("Model saved as Gradient-Boosting-A4.pkl")
+print("Model saved as Gradient-Boosting-A5.pkl")

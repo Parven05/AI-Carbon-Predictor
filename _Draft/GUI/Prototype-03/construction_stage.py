@@ -1,4 +1,6 @@
-from PySide6.QtWidgets import QDialog, QVBoxLayout, QLabel, QFormLayout, QLineEdit, QComboBox, QPushButton
+import pickle
+from PySide6.QtWidgets import QDialog, QVBoxLayout, QLabel, QFormLayout, QLineEdit, QComboBox, QPushButton, QMessageBox
+import pandas as pd
 
 class ConstructionStageWindow(QDialog):
     def __init__(self):
@@ -7,14 +9,17 @@ class ConstructionStageWindow(QDialog):
         self.setGeometry(200, 200, 400, 350)
         layout = QVBoxLayout(self)
 
+        # Load the pickled model
+        self.model = self.load_model()
+
         # Text for Construction Stage page
         construction_text = QLabel(
             """Provide the following information to estimate emissions for the construction stage:
             
-1. Select construction activity.
-2. Enter number of workers.
-3. Enter hours of work.
-4. Enter equipment fuel consumption.
+1. Select machinery.
+2. Enter quantity.
+3. Enter fuel consumption rate.
+4. Enter hours of operation.
 5. Enter carbon emission factor.
             """, self)
         layout.addWidget(construction_text)
@@ -23,31 +28,88 @@ class ConstructionStageWindow(QDialog):
         form_layout = QFormLayout()
 
         # Create widgets for the form
-        self.activity_combo = QComboBox()
-        self.activity_combo.addItems(['Excavation', 'Concrete Pouring', 'Roof Installation'])  # Example items
+        self.machinery_combo = QComboBox()
+        self.machinery_combo.addItems(['Excavator', 'Bulldozer', 'Crane'])  # Example items
 
-        self.workers_input = QLineEdit()
-        self.workers_input.setPlaceholderText('Enter number of workers')
-
-        self.hours_input = QLineEdit()
-        self.hours_input.setPlaceholderText('Enter hours of work')
+        self.quantity_input = QLineEdit()
+        self.quantity_input.setPlaceholderText('Enter quantity')
 
         self.fuel_consumption_input = QLineEdit()
-        self.fuel_consumption_input.setPlaceholderText('Enter equipment fuel consumption')
+        self.fuel_consumption_input.setPlaceholderText('Enter fuel consumption')
+
+        self.hours_input = QLineEdit()
+        self.hours_input.setPlaceholderText('Enter hours of operation')
 
         self.carbon_factor_input = QLineEdit()
         self.carbon_factor_input.setPlaceholderText('Enter carbon emission factor')
 
         # Add form widgets to the form layout
-        form_layout.addRow('Construction Activity:', self.activity_combo)
-        form_layout.addRow('Number of Workers:', self.workers_input)
-        form_layout.addRow('Hours of Work:', self.hours_input)
-        form_layout.addRow('Equipment Fuel Consumption:', self.fuel_consumption_input)
+        form_layout.addRow('Machinery:', self.machinery_combo)
+        form_layout.addRow('Quantity:', self.quantity_input)
+        form_layout.addRow('Fuel Consumption Rate:', self.fuel_consumption_input)
+        form_layout.addRow('Hours of Operation:', self.hours_input)
         form_layout.addRow('Carbon Emission Factor:', self.carbon_factor_input)
 
-        # Create a button
+        # Create a button and connect it to the predict method
         predict_button = QPushButton('Predict')
+        predict_button.clicked.connect(self.predict)  # Connect button to predict method
         form_layout.addRow(predict_button)
 
         # Add the form layout to the main layout
         layout.addLayout(form_layout)
+
+        # Label for displaying results
+        self.result_label = QLabel("", self)
+        layout.addWidget(self.result_label)
+
+    def load_model(self):
+        # Load the pickled model from file
+        model_path = 'models/Gradient-Boosting-A5.pkl'  # Path to your model
+        with open(model_path, 'rb') as file:
+            model = pickle.load(file)
+        return model
+
+    def predict(self):
+        # Get the input values
+        machinery = self.machinery_combo.currentText()
+        quantity = self.quantity_input.text()
+        fuel_consumption = self.fuel_consumption_input.text()
+        hours = self.hours_input.text()
+        carbon_factor = self.carbon_factor_input.text()
+
+        if not quantity or not fuel_consumption or not hours or not carbon_factor:
+            QMessageBox.warning(self, "Input Error", "Please provide all numeric inputs.")
+            return
+
+        try:
+            quantity = float(quantity)
+            fuel_consumption = float(fuel_consumption)
+            hours = float(hours)
+            carbon_factor = float(carbon_factor)
+        except ValueError:
+            QMessageBox.warning(self, "Input Error", "Quantity, Fuel Consumption, Hours of Operation, and Carbon Emission Factor must be numeric.")
+            return
+
+        # Convert categorical input to numerical
+        machinery_mapping = {'Excavator': 0, 'Bulldozer': 1, 'Crane': 2}
+        machinery_num = machinery_mapping.get(machinery, -1)
+
+        if machinery_num == -1:
+            QMessageBox.warning(self, "Input Error", "Invalid machinery type selected.")
+            return
+
+        # Prepare the feature vector
+        features = pd.DataFrame({
+            'Machinery': [machinery_num],
+            'Quantity': [quantity],
+            'Fuel_consumption_rate': [fuel_consumption],
+            'Hours_of_operation': [hours],
+            'Carbon_emission_factor': [carbon_factor]
+        })
+
+        # Perform prediction
+        try:
+            prediction = self.model.predict(features)[0]
+            self.result_label.setText(f"Predicted Emission: {prediction:.2f}")
+        except Exception as e:
+            QMessageBox.critical(self, "Prediction Error", f"An error occurred during prediction: {str(e)}")
