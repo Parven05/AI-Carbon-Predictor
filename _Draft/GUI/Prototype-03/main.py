@@ -73,7 +73,7 @@ By providing accurate insights into your carbon footprint at each stage, we empo
     def on_button_clicked(self, button_name):
         if button_name == "Get Started":
             # Load and display the image
-            pixmap = QPixmap("logo.png")  # Replace with your image path
+            pixmap = QPixmap("resources/logo.png")  # Replace with your image path
             self.image_label.setPixmap(pixmap.scaled(
                 300, 300, Qt.KeepAspectRatio, Qt.SmoothTransformation))  # Adjust size as needed
             self.image_label.setAlignment(Qt.AlignCenter)
