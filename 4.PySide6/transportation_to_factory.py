@@ -8,7 +8,7 @@ class TransportationToFactoryStageWindow(QDialog):
         super().__init__()
         self.setWindowTitle("Transportation to Factory Stage")
         self.setWindowIcon(QIcon("resources/A2-favicon.png"))
-        self.setFixedSize(400,500)
+        self.setFixedSize(400, 500)
         layout = QVBoxLayout(self)
 
         # Load the pickled model
@@ -19,10 +19,10 @@ class TransportationToFactoryStageWindow(QDialog):
             """Provide the following information to estimate emissions:
             
 1. Select Raw material type.
-2. Enter mass used (kg).
-3. Enter distance traveled (km).
-4. Enter fuel consumption (litres/km).
-5. Enter carbon emission factor (kgCO2/l).
+2. Enter mass used (kg) | Recommended: 50 - 2000 (kg).
+3. Enter distance traveled (km) | Recommended: 100 - 500 (km).
+4. Fuel consumption is automatically set to 0.4 litres/km.
+5. Carbon emission factor is automatically assigned based on material selected.
             """, self)
         layout.addWidget(transportation_text)
 
@@ -31,7 +31,22 @@ class TransportationToFactoryStageWindow(QDialog):
 
         # Create widgets for the form
         self.material_combo = QComboBox()
-        self.material_combo.addItems(['Wood', 'Steel', 'Concrete'])  # Example items
+        self.materials = ['Cement', 'Concrete', 'Steel', 'Asphalt', 'Bricks', 'Glass', 'Wood', 'Aluminium', 'Stone', 'Plastics']
+        self.material_combo.addItems(self.materials)
+        self.material_combo.currentIndexChanged.connect(self.update_carbon_factor)
+
+        self.carbon_factors = {
+            'Cement': 0.9,
+            'Concrete': 0.3,
+            'Steel': 1.8,
+            'Asphalt': 0.1,
+            'Bricks': 0.5,
+            'Glass': 0.8,
+            'Wood': 0.2,
+            'Aluminium': 11.0,
+            'Stone': 0.4,
+            'Plastics': 6.0
+        }
 
         self.mass_input = QLineEdit()
         self.mass_input.setPlaceholderText('Enter mass used (kg)')
@@ -40,16 +55,18 @@ class TransportationToFactoryStageWindow(QDialog):
         self.distance_input.setPlaceholderText('Enter distance traveled (km)')
 
         self.fuel_consumption_input = QLineEdit()
-        self.fuel_consumption_input.setPlaceholderText('Enter fuel consumption (litres/km)')
+        self.fuel_consumption_input.setText('0.4')
+        self.fuel_consumption_input.setReadOnly(True)  # Set fuel consumption as read-only
 
         self.carbon_factor_input = QLineEdit()
         self.carbon_factor_input.setPlaceholderText('Emission factor (kgCO2/l)')
+        self.carbon_factor_input.setReadOnly(True)  # Carbon emission factor is read-only
 
         # Add form widgets to the form layout
         form_layout.addRow('Material Type:', self.material_combo)
         form_layout.addRow('Mass Used:', self.mass_input)
         form_layout.addRow('Distance Traveled:', self.distance_input)
-        form_layout.addRow('Fuel Consumption:', self.fuel_consumption_input)
+        form_layout.addRow('Fuel Consumption (litres/km):', self.fuel_consumption_input)
         form_layout.addRow('Carbon Emission Factor:', self.carbon_factor_input)
 
         # Create a button
@@ -64,12 +81,21 @@ class TransportationToFactoryStageWindow(QDialog):
         self.result_label = QLabel("", self)
         layout.addWidget(self.result_label)
 
+        # Update carbon factor based on initial selection
+        self.update_carbon_factor()
+
     def load_model(self):
         # Load the pickled model from file
         model_path = 'models/Gradient-Boosting-A2.pkl'  # Path to your model
         with open(model_path, 'rb') as file:
             model = pickle.load(file)
         return model
+
+    def update_carbon_factor(self):
+        # Update the carbon emission factor based on selected material
+        selected_material = self.material_combo.currentText()
+        carbon_factor = self.carbon_factors.get(selected_material, "")
+        self.carbon_factor_input.setText(str(carbon_factor))
 
     def predict(self):
         # Get the input values
@@ -93,7 +119,7 @@ class TransportationToFactoryStageWindow(QDialog):
             return
 
         # Convert categorical input to numerical
-        material_mapping = {'Wood': 0, 'Steel': 1, 'Concrete': 2}
+        material_mapping = {mat: idx for idx, mat in enumerate(self.materials)}
         material_num = material_mapping.get(material, -1)
 
         if material_num == -1:

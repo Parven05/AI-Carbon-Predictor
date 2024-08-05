@@ -20,9 +20,9 @@ class ManufacturingStageWindow(QDialog):
             
 1. Select manufacturing equipment/machinery.
 2. Enter quantity.
-3. Enter fuel consumption rate.
+3. Enter fuel consumption rate (litres/h).
 4. Enter hours of operation.
-5. Enter carbon emission factor.
+5. Enter carbon emission factor (kgCO2e/l).
             """, self)
         layout.addWidget(manufacturing_text)
 
@@ -37,13 +37,13 @@ class ManufacturingStageWindow(QDialog):
         self.quantity_input.setPlaceholderText('Enter quantity')
 
         self.fuel_consumption_input = QLineEdit()
-        self.fuel_consumption_input.setPlaceholderText('Enter fuel consumption')
+        self.fuel_consumption_input.setPlaceholderText('Enter fuel consumption (litres/h)')
 
         self.hours_input = QLineEdit()
         self.hours_input.setPlaceholderText('Enter hours of operation')
 
         self.carbon_factor_input = QLineEdit()
-        self.carbon_factor_input.setPlaceholderText('Enter carbon emission factor')
+        self.carbon_factor_input.setPlaceholderText('Enter carbon emission factor (kgCO2e/l)')
 
         # Add form widgets to the form layout
         form_layout.addRow('Manufacturing Equipment:', self.equipment_combo)
