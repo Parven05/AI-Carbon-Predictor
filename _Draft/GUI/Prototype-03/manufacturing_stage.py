@@ -1,12 +1,14 @@
 import pickle
 from PySide6.QtWidgets import QDialog, QVBoxLayout, QLabel, QFormLayout, QLineEdit, QComboBox, QPushButton, QMessageBox
+from PySide6.QtGui import QIcon
 import pandas as pd
 
 class ManufacturingStageWindow(QDialog):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Manufacturing Stage")
-        self.setGeometry(200, 200, 400, 350)
+        self.setWindowIcon(QIcon("resources/A3-favicon.png"))
+        self.setFixedSize(400,500)
         layout = QVBoxLayout(self)
 
         # Load the pickled model
@@ -14,7 +16,7 @@ class ManufacturingStageWindow(QDialog):
 
         # Text for Manufacturing Stage page
         manufacturing_text = QLabel(
-            """Provide the following information to estimate emissions for the manufacturing stage:
+            """Provide the following information to estimate emissions:
             
 1. Select manufacturing equipment/machinery.
 2. Enter quantity.

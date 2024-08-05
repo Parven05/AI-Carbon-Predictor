@@ -1,12 +1,14 @@
 import pickle
 from PySide6.QtWidgets import QDialog, QVBoxLayout, QLabel, QFormLayout, QLineEdit, QComboBox, QPushButton, QMessageBox
+from PySide6.QtGui import QIcon
 import pandas as pd
 
 class TransportationToFactoryStageWindow(QDialog):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Transportation to Factory Stage")
-        self.setGeometry(200, 200, 400, 350)
+        self.setWindowIcon(QIcon("resources/A2-favicon.png"))
+        self.setFixedSize(400,500)
         layout = QVBoxLayout(self)
 
         # Load the pickled model
@@ -14,7 +16,7 @@ class TransportationToFactoryStageWindow(QDialog):
 
         # Text for Transportation to Factory Stage page
         transportation_text = QLabel(
-            """Provide the following information to estimate emissions for the transportation to factory stage:
+            """Provide the following information to estimate emissions:
             
 1. Select material type.
 2. Enter mass used.
