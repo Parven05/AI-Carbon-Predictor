@@ -136,6 +136,6 @@ class ManufacturingStageWindow(QDialog):
         # Perform prediction
         try:
             prediction = self.model.predict(features)[0]
-            self.result_label.setText(f"Predicted Emission: {prediction:.2f} kgCO2e")
+            self.result_label.setText(f"Predicted Total Carbon Emission: {prediction:.2f} kgCO2e")
         except Exception as e:
             QMessageBox.critical(self, "Prediction Error", f"An error occurred during prediction: {str(e)}")
