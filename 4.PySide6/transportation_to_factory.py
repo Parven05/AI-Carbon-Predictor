@@ -18,11 +18,11 @@ class TransportationToFactoryStageWindow(QDialog):
         transportation_text = QLabel(
             """Provide the following information to estimate emissions:
             
-1. Select material type.
-2. Enter mass used.
-3. Enter distance traveled.
-4. Enter fuel consumption.
-5. Enter carbon emission factor.
+1. Select Raw material type.
+2. Enter mass used (kg).
+3. Enter distance traveled (km).
+4. Enter fuel consumption (litres/km).
+5. Enter carbon emission factor (kgCO2/l).
             """, self)
         layout.addWidget(transportation_text)
 
@@ -34,16 +34,16 @@ class TransportationToFactoryStageWindow(QDialog):
         self.material_combo.addItems(['Wood', 'Steel', 'Concrete'])  # Example items
 
         self.mass_input = QLineEdit()
-        self.mass_input.setPlaceholderText('Enter mass used')
+        self.mass_input.setPlaceholderText('Enter mass used (kg)')
 
         self.distance_input = QLineEdit()
-        self.distance_input.setPlaceholderText('Enter distance traveled')
+        self.distance_input.setPlaceholderText('Enter distance traveled (km)')
 
         self.fuel_consumption_input = QLineEdit()
-        self.fuel_consumption_input.setPlaceholderText('Enter fuel consumption')
+        self.fuel_consumption_input.setPlaceholderText('Enter fuel consumption (litres/km)')
 
         self.carbon_factor_input = QLineEdit()
-        self.carbon_factor_input.setPlaceholderText('Enter carbon emission factor')
+        self.carbon_factor_input.setPlaceholderText('Emission factor (kgCO2/l)')
 
         # Add form widgets to the form layout
         form_layout.addRow('Material Type:', self.material_combo)
@@ -53,7 +53,7 @@ class TransportationToFactoryStageWindow(QDialog):
         form_layout.addRow('Carbon Emission Factor:', self.carbon_factor_input)
 
         # Create a button
-        predict_button = QPushButton('Predict')
+        predict_button = QPushButton('Predict Total Carbon Emission')
         predict_button.clicked.connect(self.predict)  # Connect button to predict method
         form_layout.addRow(predict_button)
 
@@ -112,6 +112,6 @@ class TransportationToFactoryStageWindow(QDialog):
         # Perform prediction
         try:
             prediction = self.model.predict(features)[0]
-            self.result_label.setText(f"Predicted Emission: {prediction:.2f}")
+            self.result_label.setText(f"Predicted Total Carbon Emission: {prediction:.2f} kgCO2e")
         except Exception as e:
             QMessageBox.critical(self, "Prediction Error", f"An error occurred during prediction: {str(e)}")
