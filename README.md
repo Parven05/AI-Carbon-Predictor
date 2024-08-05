@@ -3,7 +3,7 @@
 ![License](https://badgen.net/badge/license/MIT/green)
 ![Tool](https://badgen.net/badge/Tool/Orange3/orange?icon)
 
-![logo](https://github.com/user-attachments/assets/9a02e357-0593-46ad-800c-9994084e49bf)
+![logo](https://github.com/user-attachments/assets/c988122e-17a0-4484-9310-6576bc848087)
 
 # _Disclaimer_
 
