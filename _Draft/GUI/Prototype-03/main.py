@@ -81,7 +81,7 @@ By providing accurate insights into your carbon footprint at each stage, we empo
             self.text_edit.show()
         elif button_name == "Production Stage":
             self.open_window(ProductionStageWindow())
-        elif button_name == "Transportation to Factory Stage":
+        elif button_name == "Transportation to Factory Stage": 
             self.open_window(TransportationToFactoryStageWindow())
         elif button_name == "Manufacturing Stage":
             self.open_window(ManufacturingStageWindow())
