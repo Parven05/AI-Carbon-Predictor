@@ -61,6 +61,6 @@ QPushButton:hover {
 }
 
 QPushButton:pressed {
-    background-color: #5e811f; /* Even darker blue when pressed */
+    background-color: #78a328; /* Even darker blue when pressed */
     transform: scale(0.95); /* Slightly scale down on press */
 }
