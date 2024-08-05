@@ -4,11 +4,11 @@ from PySide6.QtWidgets import (QApplication, QMainWindow, QMenuBar, QLabel, QVBo
 from PySide6.QtGui import QPixmap, QIcon, QAction
 from PySide6.QtCore import Qt
 
-from production_stage import ProductionStageWindow
-from transportation_to_factory_stage import TransportationToFactoryStageWindow
-from manufacturing_stage import ManufacturingStageWindow
-from transportation_to_site_stage import TransportationToSiteStageWindow
-from construction_stage import ConstructionStageWindow
+from production import ProductionStageWindow
+from transportation_to_factory import TransportationToFactoryStageWindow
+from manufacturing import ManufacturingStageWindow
+from transportation_to_site import TransportationToSiteStageWindow
+from construction import ConstructionStageWindow
 
 class MainWindow(QMainWindow):
     def __init__(self):
