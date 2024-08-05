@@ -3,7 +3,7 @@
 ![License](https://badgen.net/badge/license/MIT/green)
 ![Tool](https://badgen.net/badge/Tool/Orange3/orange?icon)
 
-![Logo](https://github.com/Parven05/AI-Carbon-Predictor/assets/101796812/80da8057-5c1f-4bef-8950-125f1f78c045)
+![logo](https://github.com/user-attachments/assets/2816a3ca-bf09-459e-8f8e-352d31ef1b50)
 
 # _Disclaimer_
 
