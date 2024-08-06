@@ -5,13 +5,13 @@ a = Analysis(
     ['main.py'],
     pathex=[],
     binaries=[
-        (r'C:\Users\Parven\AppData\Local\Programs\Python\Python312\Lib\site-packages\xgboost\lib\xgboost.dll', 'xgboost/lib'),
+        ('bin/xgboost/lib/xgboost.dll', 'xgboost/lib')
     ],
     datas=[
         ('models', 'models'),
         ('resources', 'resources'),
         ('styles.qss', '.'),
-        (r'C:\Users\Parven\AppData\Local\Programs\Python\Python312\Lib\site-packages\xgboost\VERSION', 'xgboost'),
+        ('bin/xgboost/VERSION', 'xgboost'),
     ],
     hiddenimports=[
         'pickle', 'sklearn', 'sklearn.base', 'sklearn.compose', 'sklearn.datasets', 
