@@ -39,7 +39,7 @@ QComboBox::drop-down {
 
 /* QPushButton Styles */
 QPushButton {
-    background-color: #92c730; /* Modern blue background */
+    background-color: #92c730; /* Modern green background */
     border: none;
     color: white; /* White text for contrast */
     padding: 10px 20px; /* Adjusted padding for a modern button look */
@@ -50,17 +50,14 @@ QPushButton {
     margin: 6px 0; /* Vertical margin for spacing */
     border-radius: 4px; /* Consistent with other elements */
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition effects */
 }
 
 QPushButton:hover {
-    background-color: #78a328; /* Darker blue on hover */
-    transform: scale(1.05); /* Slightly scale up on hover for a modern touch */
+    background-color: #78a328; /* Darker green on hover */
 }
 
 QPushButton:pressed {
-    background-color: #78a328; /* Even darker blue when pressed */
-    transform: scale(0.95); /* Slightly scale down on press */
+    background-color: #5a8e23; /* Even darker green when pressed */
 }
 
 /* QTextEdit Styles */

@@ -1,0 +1,11 @@
+Welcome to the Carbon Emission Calculator !
+
+Our tool is designed to help you estimate carbon emissions at construction sites across five key stages:
+
+1. Production Stage (Emissions from raw material production)
+2. Transportation of raw materials (Emissions from transporting raw materials to factories)
+3. Manufacturing of raw materials (Emissions from the manufacturing process)
+4. Transportation of materials to the construction site (Emissions from transporting materials to the site)
+5. Construction activities on site (Emissions from on-site construction activities)
+
+By providing accurate insights into your carbon footprint at each stage, we empower you to make informed decisions for a more sustainable construction process.
