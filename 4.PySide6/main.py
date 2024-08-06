@@ -9,6 +9,7 @@ from transportation_to_factory import TransportationToFactoryStageWindow
 from manufacturing import ManufacturingStageWindow
 from transportation_to_site import TransportationToSiteStageWindow
 from construction import ConstructionStageWindow
+from total_emission import TotalCarbonEmissionWindow
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -97,7 +98,7 @@ By providing accurate insights into your carbon footprint at each stage, we empo
         elif button_name == "Construction":
             self.open_window(ConstructionStageWindow())
         elif button_name == "Total Carbon Emission":
-            # Create and show window for Total Carbon Emission
+            self.open_window(TotalCarbonEmissionWindow())
             pass
 
     def open_window(self, window):
