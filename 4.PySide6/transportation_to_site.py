@@ -34,9 +34,9 @@ class TransportationToSiteStageWindow(QDialog):
         # Create widgets for the form
         self.material_combo = QComboBox()
         self.materials = [
-            'Stone wool', 'AAC blocks', 'Resins', 'Cement board',
-            'Aluminium studs', 'Stainless steel', 'Metal siding',
-            'Fiberboard', 'Duct tape', 'Door frame'
+            'AAC blocks', 'Aluminium studs', 'Cement board', 'Door frame',
+            'Duct tape', 'Fiberboard', 'Metal siding', 'Resins',
+            'Stainless steel', 'Stone wool'
         ]
         self.material_combo.addItems(self.materials)
         self.material_combo.currentIndexChanged.connect(self.update_carbon_factor)
@@ -86,16 +86,16 @@ class TransportationToSiteStageWindow(QDialog):
     def update_carbon_factor(self):
         # Update the carbon emission factor based on selected material
         material_factors = {
-            'Stone wool': 3,
             'AAC blocks': 0.6,
-            'Resins': 7.5,
-            'Cement board': 0.7,
             'Aluminium studs': 11,
-            'Stainless steel': 4,
-            'Metal siding': 2.5,
-            'Fiberboard': 0.6,
+            'Cement board': 0.7,
+            'Door frame': 0.6,
             'Duct tape': 0.3,
-            'Door frame': 0.6
+            'Fiberboard': 0.6,
+            'Metal siding': 2.5,
+            'Resins': 7.5,
+            'Stainless steel': 4,
+            'Stone wool': 3
         }
         selected_material = self.material_combo.currentText()
         carbon_factor = material_factors.get(selected_material, "")

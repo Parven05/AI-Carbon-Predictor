@@ -34,8 +34,8 @@ class ConstructionStageWindow(QDialog):
         # Create widgets for the form
         self.machinery_combo = QComboBox()
         self.machinery_list = [
-            'Bulldozer', 'Crane', 'Concrete mixer', 'Rock crusher', 'Concrete pump',
-            'Air compressor', 'Road roller', 'Power buggy', 'Floor grinder', 'Crusher'
+            'Air compressor', 'Bulldozer', 'Concrete mixer', 'Concrete pump',
+            'Crane', 'Crusher', 'Floor grinder', 'Power buggy', 'Road roller', 'Rock crusher'
         ]
         self.machinery_combo.addItems(self.machinery_list)
         self.machinery_combo.currentIndexChanged.connect(self.update_fuel_and_emission_factors)
@@ -84,16 +84,16 @@ class ConstructionStageWindow(QDialog):
     def update_fuel_and_emission_factors(self):
         # Fuel consumption rates and emission factors based on machinery
         machinery_factors = {
-            'Bulldozer': (20, 1.5),
-            'Crane': (30, 2),
-            'Concrete mixer': (18, 1.6),
-            'Rock crusher': (40, 2.5),
-            'Concrete pump': (32, 2.3),
             'Air compressor': (18, 1.6),
-            'Road roller': (25, 1.9),
-            'Power buggy': (15, 1.4),
+            'Bulldozer': (20, 1.5),
+            'Concrete mixer': (18, 1.6),
+            'Concrete pump': (32, 2.3),
+            'Crane': (30, 2),
+            'Crusher': (50, 2.8),
             'Floor grinder': (40, 2.5),
-            'Crusher': (50, 2.8)
+            'Power buggy': (15, 1.4),
+            'Road roller': (25, 1.9),
+            'Rock crusher': (40, 2.5)
         }
         selected_machinery = self.machinery_combo.currentText()
         fuel_consumption, carbon_factor = machinery_factors.get(selected_machinery, ("", ""))

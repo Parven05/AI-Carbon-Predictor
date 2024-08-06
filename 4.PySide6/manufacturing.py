@@ -34,16 +34,16 @@ class ManufacturingStageWindow(QDialog):
         # Create widgets for the form
         self.equipment_combo = QComboBox()
         self.equipment_types = {
-            'Welding machine': 15,
-            'Electric furnace': 50,
-            'Generator': 10,
-            'Forklift': 4,
-            'Laser cutter': 8,
-            'Hydraulic press': 10,
             'Bending machine': 7,
-            'Extruder': 25,
             'Drill press': 2,
-            'Sandblaster': 10
+            'Electric furnace': 50,
+            'Extruder': 25,
+            'Forklift': 4,
+            'Generator': 10,
+            'Hydraulic press': 10,
+            'Laser cutter': 8,
+            'Sandblaster': 10,
+            'Welding machine': 15
         }
         self.equipment_combo.addItems(self.equipment_types.keys())
         self.equipment_combo.currentIndexChanged.connect(self.update_fuel_consumption)
