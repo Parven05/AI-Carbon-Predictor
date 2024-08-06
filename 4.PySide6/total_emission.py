@@ -1,19 +1,20 @@
 from PySide6.QtWidgets import QDialog, QVBoxLayout, QTextEdit, QFormLayout, QLineEdit, QPushButton, QMessageBox, QLabel
 from PySide6.QtGui import QIcon
+from central_data_store import PredictionStore
 
 class TotalCarbonEmissionWindow(QDialog):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Total Carbon Emission")
-        self.setWindowIcon(QIcon("resources/A5-favicon.png"))
+        self.setWindowIcon(QIcon("resources/total-favicon.png"))
         self.setFixedSize(400, 540)
         layout = QVBoxLayout(self)
 
-        # Text for Construction Stage page
+        # Text for Total Carbon Emission page
         emission_text = QTextEdit(self)
         emission_text.setPlainText(
             """Provide the following information to estimate emissions:
-            
+
 1. Upro, represents total carbon emission of production stage.
 2. Uttf, represents total carbon emission of transportation to factory stage.
 3. Umat, represents total carbon emission of manufacturing stage.
@@ -49,7 +50,7 @@ class TotalCarbonEmissionWindow(QDialog):
         form_layout.addRow('Utts:', self.transportation_to_site_input)
         form_layout.addRow('Ucon:', self.construction_input)
 
-        # Create a button and connect it to the predict method
+        # Create a button and connect it to the calculate method
         calculate_button = QPushButton('Calculate Total Carbon Emission')
         calculate_button.clicked.connect(self.calculate)
         form_layout.addRow(calculate_button)
@@ -61,22 +62,38 @@ class TotalCarbonEmissionWindow(QDialog):
         self.result_label = QLabel("", self)
         layout.addWidget(self.result_label)
 
-    def calculate(self):
-        # Get the input values
-        try:
-            production = float(self.production_input.text())
-            transportation_to_factory = float(self.transportation_to_factory_input.text())
-            manufacturing = float(self.manufacturing_input.text())
-            transportation_to_site = float(self.transportation_to_site_input.text())
-            construction = float(self.construction_input.text())
+        # Initialize input fields
+        self.update_predictions()
 
-            # Perform the calculation
-            total_emission = (production + transportation_to_factory + manufacturing +
-                              transportation_to_site + construction)
+    def update_predictions(self):
+        """Update the input fields with current emissions values from the central data store."""
+        try:
+            store = PredictionStore()
+            self.production_input.setText(f"{store.get_prediction('production'):.2f} kgCO2e")
+            self.transportation_to_factory_input.setText(f"{store.get_prediction('transportation_to_factory'):.2f} kgCO2e")
+            self.manufacturing_input.setText(f"{store.get_prediction('manufacturing'):.2f} kgCO2e")
+            self.transportation_to_site_input.setText(f"{store.get_prediction('transportation_to_site'):.2f} kgCO2e")
+            self.construction_input.setText(f"{store.get_prediction('construction'):.2f} kgCO2e")
+        except Exception as e:
+            QMessageBox.critical(self, "Initialization Error", f"An error occurred while updating predictions: {str(e)}")
+
+    def calculate(self):
+        """Calculate the total carbon emission from all stages."""
+        try:
+            # Retrieve predictions from the central data store
+            store = PredictionStore()
+            production_emission = store.get_prediction('production')
+            transportation_to_factory_emission = store.get_prediction('transportation_to_factory')
+            manufacturing_emission = store.get_prediction('manufacturing')
+            transportation_to_site_emission = store.get_prediction('transportation_to_site')
+            construction_emission = store.get_prediction('construction')
+
+            # Calculate total emission
+            total_emission = (production_emission + transportation_to_factory_emission +
+                              manufacturing_emission + transportation_to_site_emission +
+                              construction_emission)
 
             # Update the result label
             self.result_label.setText(f"Calculated Total Carbon Emission: {total_emission:.2f} kgCO2e")
-        except ValueError:
-            QMessageBox.critical(self, "Input Error", "Please enter valid numbers in all fields.")
-        except Exception as e:
+        except ValueError as e:
             QMessageBox.critical(self, "Calculation Error", f"An error occurred during calculation: {str(e)}")

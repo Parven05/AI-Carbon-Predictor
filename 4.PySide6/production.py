@@ -2,6 +2,7 @@ import pickle
 from PySide6.QtWidgets import QDialog, QVBoxLayout, QLabel, QFormLayout, QLineEdit, QComboBox, QPushButton, QTextEdit, QMessageBox
 from PySide6.QtGui import QIcon
 import pandas as pd
+from central_data_store import PredictionStore
 
 class ProductionStageWindow(QDialog):
     def __init__(self):
@@ -23,7 +24,7 @@ class ProductionStageWindow(QDialog):
 1. Select raw material type.
 2. Enter mass used (kg).
 3. Carbon emission factor is automatically assigned based on material selected (kgCO2/kg).
-         """
+            """
         )
         layout.addWidget(production_stage_text)
 
@@ -48,7 +49,6 @@ class ProductionStageWindow(QDialog):
             'Stone': 0.4,
             'Wood': 0.2
         }
-
 
         self.mass_input = QLineEdit()
         self.mass_input.setPlaceholderText('Enter mass used (kg)')
@@ -125,6 +125,15 @@ class ProductionStageWindow(QDialog):
         # Perform prediction
         try:
             prediction = self.model.predict(features)[0]
+            self.predicted_emission = prediction  # Store the prediction
+
+            # Update the central data store
+            store = PredictionStore()
+            store.set_prediction('production', prediction)
+
             self.result_label.setText(f"Predicted Total Carbon Emission: {prediction:.2f} kgCO2e")
         except Exception as e:
             QMessageBox.critical(self, "Prediction Error", f"An error occurred during prediction: {str(e)}")
+
+    def get_prediction(self):
+        return getattr(self, 'predicted_emission', 0)

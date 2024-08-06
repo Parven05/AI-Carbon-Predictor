@@ -2,6 +2,7 @@ import pickle
 from PySide6.QtWidgets import QDialog, QVBoxLayout, QTextEdit, QFormLayout, QLineEdit, QComboBox, QPushButton, QMessageBox, QLabel
 from PySide6.QtGui import QIcon
 import pandas as pd
+from central_data_store import PredictionStore
 
 class ConstructionStageWindow(QDialog):
     def __init__(self):
@@ -142,6 +143,13 @@ class ConstructionStageWindow(QDialog):
         # Perform prediction
         try:
             prediction = self.model.predict(features)[0]
+            self.predicted_emission = prediction  # Store the prediction
+            store = PredictionStore()
+            store.set_prediction('construction', prediction)
+
             self.result_label.setText(f"Predicted Total Carbon Emission: {prediction:.2f} kgCO2e")
         except Exception as e:
             QMessageBox.critical(self, "Prediction Error", f"An error occurred during prediction: {str(e)}")
+
+    def get_prediction(self):
+        return getattr(self, 'predicted_emission', 0)
