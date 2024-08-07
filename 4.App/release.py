@@ -15,8 +15,12 @@ def find_and_cut_exe(src_dir):
         print(f"'dist' directory not found in {src_dir}")
 
 def zip_folders_and_files(folder_names, src_dir, zip_file_name, specific_py_files):
-    # Create or replace the ZIP file in the current directory
-    zip_path = os.path.join(src_dir, zip_file_name)
+    # Create the /release directory if it does not exist
+    release_dir = os.path.join(src_dir, 'release')
+    os.makedirs(release_dir, exist_ok=True)
+
+    # Create or replace the ZIP file in the /release directory
+    zip_path = os.path.join(release_dir, zip_file_name)
     if os.path.exists(zip_path):
         os.remove(zip_path)
         print(f"Removed existing ZIP file: {zip_path}")
